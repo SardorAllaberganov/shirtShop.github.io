@@ -2,26 +2,26 @@ var data = [{
   id: 1,
   brand: 'product1',
   price: 100000,
-  //Image: "/data/images/3.jpg"
-  Image: "/shirtShop.github.io/data/images/3.jpg"
+  Image: "/data/images/3.jpg"
+  // Image: "/shirtShop.github.io/data/images/3.jpg"
 },{
   id: 2,
   brand: 'product2',
   price: 145000,
-  //Image: '/data/images/4.jpg'
-  Image: '/shirtShop.github.io/data/images/4.jpg'
+  Image: '/data/images/4.jpg'
+  //Image: '/shirtShop.github.io/data/images/4.jpg'
 },{
   id: 3,
   brand: 'product3',
   price: 132000,
-  //Image: '/data/images/5.jpg'
-  Image: '/shirtShop.github.io/data/images/5.jpg'
+  Image: '/data/images/5.jpg'
+  // Image: '/shirtShop.github.io/data/images/5.jpg'
 },{
   id: 4,
   brand: 'product4',
   price: 99900,
-  //Image: '/data/images/6.jpg'
-  Image: '/shirtShop.github.io/data/images/6.jpg'
+  Image: '/data/images/6.jpg'
+  //Image: '/shirtShop.github.io/data/images/6.jpg'
 }];
 
 
@@ -71,7 +71,6 @@ app.controller('cart', function ($scope) {
 	
   $scope.getCost = function(item) {
     return (item.count * item.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    
   };
 
   $scope.addItem = function (product) {

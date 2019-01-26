@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Shirt Shop</title>
   <link rel="shortcut icon" href="data/images/logo.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -59,7 +59,7 @@
         <li class="linedivide1"> | </li>
         <li class="dropdown">
           <img src="data/images/icons/icon-header-02.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON">
-          <span class="header-icons-noti"><p>{{ cart.length }}</p></span>
+          <span class="header-icons-noti"><p> {{ cart.length }} </p></span>
           <div class="dropdown-menu">
             <h5 class="dropdown-header">Savatcha</h5>
             <ul class="cartList">
@@ -67,9 +67,9 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-9">
-                      <p class="productBrand">{{ item.brand }}</p>
+                      <p class="productBrand"> {{ item.brand }} </p>
                       <input type="text" readonly ng-model="item.count" class="productCount" />
-                      <span>{{ 'ta = ' + getCost(item) }}</span>
+                      <span> {{ 'ta = ' + getCost(item) }} </span>
                     </div>
                     <div class="col-sm-3">
                       <button class="btn btn-danger btn-sm" ng-click="removeItem(item);">
@@ -162,11 +162,11 @@
               <div class="card-body">
                 <div class="row row-no-padding">
                   <div class="col-md-9 col-sm-8 col-xs-8">
-                    <h5 class="card-title">{{ product.brand }}</h4>
-                    <p class="card-text">{{ product.price + ' сўм' }}</p>
+                    <h5 class="card-title"> {{ product.brand }} </h5>
+                    <p class="card-text"> {{ product.price + ' сўм' }} </p>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-4">
-                    <button class="btn btn-primary btn-sm block2-btn-addcart" ng-click="addItem(product)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <button class="btn btn-primary btn-sm block2-btn-addcart" ng-click="addItem(product)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                   </div>
                 </div>
               </div>
@@ -292,6 +292,7 @@
               <p>photo by @phoenix</p>
             </a>
             <img src="data/images/LIGHT-GREY-SHIRT_237_1-Grey-Cashmerello-2BC-Slim-FIt-Flat-Front-Shirt-499x569.jpg" alt="">
+          </div>
         </div>
       </div>
     </section>
