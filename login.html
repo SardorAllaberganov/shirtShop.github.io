@@ -110,121 +110,36 @@
         </ul>
       </div>
     </nav>
-      
-    <!--  -->
-    <section class="basketSection1">
+
+    <!-- login page -->
+    <section class="login">
+      <h1 class="text-center login-title">
+        Log in 
+      </h1>
       <div class="container-fluid">
         <div class="row">
-          <div class="overlay"></div>
-          <img src="data/images/cart-banner.jpg" alt="">
-          <h1>savatcha</h1>
+          <div class="mx-auto login-input-forms">
+            <form action="" class="login-forms">
+              <input type="text" class="form-control" placeholder="Электрон почта адреси">
+              <input type="text" class="form-control" placeholder="Парол">
+              <button type="submit" class="login-btn">Login</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <h6 class="text-center">Сиз янги мижозмисиз? <a href="#">Аккаунт яратиш</a></h6>
+        </div>
+        <div class="row">
+          <div class="mx-auto login-input-forms">
+            <button type="submit" class="facebook-btn"><i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in with Facebook</button>
+            <button type="submit" class="google-btn"><img src="data/images/icons/google-logo.svg" alt="google-logo"> Sign in with Google</button>
+          </div>
+        </div>
+        <div class="forgotPass">
+          <a href="#">Паролингизни эсдан чиқардингизми?</a>
         </div>
       </div>
     </section>
-
-    <section class="basketSection2">
-      <div class="container-fluid">
-        <div class="row" ng-if="cart.length === 0" >
-          <div class="emptyCart">
-            <p>
-              <!-- <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> -->
-              <img src="data/images/icons/shopping-cart-add-button.svg" alt="emptyCart">
-            </p> 
-            <h3>В вашей корзине пусто? Не беда!</h3>
-            <h5>
-                Начните выбирать товары из широкого ассортимента нашего каталога.
-            </h5>
-          </div>
-        </div>
-        <div class="row" ng-if="cart.length !== 0" >
-          <div class="col-md-9">
-            <div class="table-responsive cartMain">
-              <table class="table basketTable">
-                <thead class="thead-light">
-                  <tr>
-                    <th class="productItem">Махсулот</th>
-                    <th class="productPrice">Нарх</th>
-                    <th class="productCount">Сони</th>
-                    <th class="productTotal">Умумий қиймати</th>
-                    <th class="trash"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="item in cart track by $index">
-                    <td>
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col-md-5">
-                            <img ng-src="{{item.Image}}" alt="">
-                          </div>
-                          <div class="col-md-7">
-                            {{ item.brand }}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>{{ item.price + ' сўм' }}</td>
-                    <td>
-                      <div class="cartCount">
-                        <button class="btn btn-outline-success btn-sm" id="addItem" ng-click="addItem(item);">
-                          <i class="fa fa-plus" aria-hidden="true"></i>
-                        </button>
-                        <input type="number" readonly ng-model="item.count" class="count" />
-                        <button class="btn btn-outline-danger btn-sm" id="removeItemCount" ng-click="removeItemCart(item);">
-                          <i class="fa fa-minus" aria-hidden="true"></i>
-                        </button>
-                      </div>
-                    </td>
-                    <td>{{ getCost(item) + ' сўм' }}</td>
-                    <td>
-                      <button class="btn btn-outline-light text-dark" ng-click="removeItem(item);">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="cartSide">
-                  <h5>Якуний саватча</h5>
-                  <h6>Умумий: {{ getTotal() + ' сўм' }}</h6>
-                  <hr>
-                  <button class="btn btn-success btn-sm" onclick="location.href = 'checkout.html'">Оформить заказ</button>
-                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Очистить корзину</button>
-                  <!-- The Modal -->
-                  <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                          <h4 class="modal-title">Тасдиқлаш</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                          <p>Саватчани бўшатмоқчимисиз?</p>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" ng-click="clearCart()">Ҳа</button>
-                          <button type="button" class="btn btn-success" data-dismiss="modal">Йўқ</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
 
     <!-- Footer -->
     <footer class="footer">

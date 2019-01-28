@@ -603,6 +603,91 @@ a {
   color: #000;
 }
 
+.login-title {
+  font-family: montserrat-medium;
+  margin: 1em auto 2em;
+  position: relative;
+  color: #555555;
+}
+.login-title::after {
+  content: "";
+  bottom: -0.9em;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  background: #222222;
+  position: absolute;
+  height: 3px;
+  width: 30px;
+}
+.login .login-input-forms {
+  width: 100%;
+  max-width: 610px;
+  padding: 0 15px;
+}
+.login .login-input-forms button {
+  padding: 20px 60px 22px;
+  font-size: 19.2px;
+  width: 100%;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.login .login-input-forms .login-btn {
+  background-color: #1a2d40;
+}
+.login .login-input-forms .facebook-btn {
+  background-color: #3b5998;
+  margin-bottom: 1em;
+  font-family: montserrat-medium;
+}
+.login .login-input-forms .facebook-btn i {
+  transform: scale(1.5);
+  margin-right: 1em;
+}
+.login .login-input-forms .google-btn {
+  background-color: white;
+  color: #555 !important;
+  font-family: montserrat-medium;
+  border: 1px solid #e3e3e3;
+}
+.login .login-input-forms .google-btn img {
+  height: 1em;
+  transform: scale(1.5);
+  margin-right: 1em;
+}
+.login .login-input-forms input {
+  margin: 20px 0;
+  border-radius: 0;
+  max-width: 610px;
+  width: 100%;
+}
+.login .forgotPass {
+  position: relative;
+  text-align: center;
+  margin-top: 1.2em;
+  margin-bottom: 2em;
+  padding: 0 0 50px;
+}
+.login .forgotPass a {
+  font-family: montserrat-regular;
+  text-decoration: underline !important;
+  color: #1a2d40;
+}
+.login h6 {
+  text-align: center;
+  margin: 32px auto;
+  color: #333;
+}
+.login h6 a {
+  text-decoration: underline !important;
+  color: #555555;
+  transition: all 0.2s;
+}
+.login h6 a:hover {
+  color: #000000;
+}
+
 .footer {
   margin-top: 20px;
   background-color: #f5f5f5;
