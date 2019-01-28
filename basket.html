@@ -193,7 +193,7 @@
                   <h5>Якуний саватча</h5>
                   <h6>Умумий: {{ getTotal() + ' сўм' }}</h6>
                   <hr>
-                  <button class="btn btn-success btn-sm" onclick="">Оформить заказ</button>
+                  <button class="btn btn-success btn-sm" onclick="location.href = 'checkout.html'">Оформить заказ</button>
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Очистить корзину</button>
                   <!-- The Modal -->
                   <div class="modal fade" id="myModal">
@@ -210,8 +210,8 @@
                         </div>
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button class="btn btn-danger" ng-click="clearCart();" data-dismiss="modal">Ҳа</button>
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Йўқ</button>
+                          <button type="button" class="btn btn-danger" ng-click="clearCart()">Ҳа</button>
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Йўқ</button>
                         </div>
                       </div>
                     </div>

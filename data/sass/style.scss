@@ -26,6 +26,11 @@
 button{
   outline: none!important;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 .navbar{
   border-radius: 0;
@@ -619,6 +624,17 @@ a{
     }
   }
 }
+
+
+//order page style
+.orderPage{
+  .address{
+    .nav-link{
+      color: #000;
+    }  
+  }
+}
+
 // footer style
 .footer{
   margin-top: 20px;
@@ -1112,6 +1128,7 @@ a{
     }
   }
   .styleTypeBlock{
+    height: 300px;
     margin: 5px 0;
   }
   .newProducts{

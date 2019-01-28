@@ -28,8 +28,14 @@ var data = [{
 angular.module('shirtShop', ['ngAnimate']);
 var app = angular.module("shirtShop", []);
 
-app.controller("productController", ["$scope", function ($products,) {
+app.controller("productController", ["$scope", function ($products) {
   $products.product = data;
+  this.codeVerification1 = true;
+  this.codeVerification = false;
+  this.codeVerification = function(){
+    this.codeVerification = true;
+    this.codeVerification1 = false;
+  }
   
       // define list of items
   // $product.productBrand = productBrand;
@@ -96,12 +102,12 @@ app.controller('cart', function ($scope) {
   $scope.getTotal = function() {
     var total = 0;
     angular.forEach($scope.cart, function(item) {
-      // if ($('.delivery').value === 'express') {
-      //   total += (item.price * item.count)+15000;
-      // }
-      // else{
+      if ($('.delivery').value === 'express') {
+        total += (item.price * item.count) + 15000;
+      }
+      else{
         total += item.price * item.count;
-      //}
+      }
     })
     return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     saveCart();
@@ -116,6 +122,7 @@ app.controller('cart', function ($scope) {
     $scope.cart.length = 0;
     $scope.total = 0;
     saveCart();
+    $('.modal-backdrop').hide();
   };
   
 	$scope.removeItemCart = function(product){

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shirtShop">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Shirt Shop</title>
+  <link rel="shortcut icon" href="data/images/logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="data/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <link rel="stylesheet" href="data/css/animate.css">  
+  <link rel="stylesheet" href="data/css/style.css">
+  <script src="data/js/index.js"></script>
+  <script src="data/js/cart.js"></script>
+  
+</head>
+<body ng-controller="cart as cart">
+  <div ng-controller="productController">
+    <!-- header -->
+    <ul class="nav topbar">
+      <li class="nav-item social-items">
+        <div class="topbar-social">
+          <a href="#" class="topbar-social-item fa fa-facebook"></a>
+          <a href="#" class="topbar-social-item fa fa-instagram"></a>
+          <a href="#" class="topbar-social-item fa fa fa-telegram"></a>
+          <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto topbar-child1">
+        <span>O'zimiz yetkazib beramiz!</span>
+      </li>
+      <li class="nav-item topbar-child1">
+        <span>name@example.com</span>
+      </li>
+      <li class="nav-item currency">
+        <form>
+          <select>
+            <option value="usd">USD</option>
+            <option value="sum">SUM</option>
+          </select>
+        </form>
+      </li>
+    </ul>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" data-toggle="affix">
+      <button class="navbar-toggler toggle-btn" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          ☰
+      </button>
+      <a class="navbar-brand" href="#"> >Brand< </a>
+      <ul class="nav topIcons">
+        <li>
+          <a href="#"><img src="data/images/icons/icon-header-01.png" alt="user"></a>
+        </li>
+        <li class="linedivide1"> | </li>
+        <li class="dropdown">
+          <img src="data/images/icons/icon-header-02.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON">
+          <span class="header-icons-noti"><p> {{ cart.length }} </p></span>
+          <div class="dropdown-menu">
+            <h5 class="dropdown-header">Savatcha</h5>
+            <ul class="cartList">
+              <li class="cartListItem dropdow-item" ng-repeat="item in cart track by $index">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="productBrand"> {{ item.brand }} </p>
+                      <input type="text" readonly ng-model="item.count" class="productCount" />
+                      <span> {{ 'ta = ' + getCost(item) }} </span>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-danger btn-sm" ng-click="removeItem(item);">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <h5 class="dropdown-header">Dropdown header</h5>
+            <p class="totalSum">Total: {{ getTotal() + ' сўм'}}</p>
+            <hr>
+            <p class="text-center basket-btn">
+              <a href="basket.html"> Savatchani tekshirish </a>
+            </p>
+          </div>
+        </li> 
+      </ul>
+      
+      <div class="collapse navbar-collapse" id="collapsingNavbar">
+        <ul class="nav navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Bosh sahifa</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Tovarlar</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Biz haqimizda</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Bog'lanish</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- ordering part -->
+    <div class="container orderPage">
+      <h3>БУЮРТМА</h3>
+      <br>
+      <div class="row">
+        <div class="col-md-8">
+          <form action="">
+            <h5>ТЕЛЕФОН РАҚАМИНИ ТАСДИҚЛАШ*</h5><br />
+            <div class="phoneVerify">
+              <div class="row">
+                <div class="col-md-6">
+                  <div ng-hide="codeVerification" >
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="+998 (99) 999-99-99">
+                    <p>Фаоллаштириш кодини олиш учун телефон рақамини киритинг</p>
+                  </div>
+                  <input type="number" ng-show="codeVerification" class="form-control" placeholder="Кодни киритинг">
+                </div>
+                <div class="col-md-6">
+                  <button type="button" ng-click="codeVerification = true " class="btn btn-info">Фаоллаштириш кодини олинг</button>
+                </div>
+              </div>
+            </div>
+            <br />
+            <h5>АЛОҚА МАЪЛУМОТЛАРИ</h5><br />
+            <div class="contactInfo">
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Исм *" required><br />	
+                  <input type="text" class="form-control" placeholder="Фамилия *" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Отчество"><br />	
+                  <input type="text" class="form-control" placeholder="Электрон почта">
+                </div>
+              </div>
+            </div>
+            <br />
+            <h5>МАНЗИЛ</h5><br />
+            <div class="address">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#home">
+                        Доставка на дом или в офис
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#map">
+                        Выбрать Pick-up Point.
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br>
+                      <p>Товар будет доставлен в удобное для Вас место.</p>
+                      <form action="">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <select name="" id="" class="form-control" required>
+                              <option value="" selected disabled hidden>Район*</option>
+                              <option value="">Сергелийский район</option>
+                              <option value="">Мирзо-Улугбекский район</option>
+                              <option value="">Мирабадский район</option>
+                              <option value="">Бектемирский район</option>
+                              <option value="">Сабир-Рахимовский район</option>
+                              <option value="">Хамзинский район</option>
+                              <option value="">Юнусабадский район</option>
+                              <option value="">Учтепинский район</option>
+                              <option value="">Шайхантахурский район</option>
+                              <option value="">Чиланзарский район</option>
+                              <option value="">Яккасарайский район</option>
+                            </select>
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Улица*" required>
+                          </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Номер дома*" required>
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Этаж">
+                          </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Подъезд">
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Квартира">
+                          </div>
+                        </div>
+                        <br />
+                      </form>
+                    </div>
+                    <div id="map" class="container tab-pane fade"><br>
+                      <p>Укажите адрес</p>
+                      <form action="" method="post">
+                        <div class="row">
+                          <div class="col-md-8">
+                            <div class="mapBody" style="height: 400px;padding: 6px">
+                              <div id="navigationMap1" style="height: 100%; width: 100%;"></div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group col-md-12">
+                              <h4>УКАЖИТЕ АДРЕС</h4>
+                              <div><br /></div>
+                              <textarea rows="3" style="resize: none" name="address_a" class="form-control" id="trucking_address_a" placeholder="Куда"></textarea>
+                            </div>
+                            <input type="hidden" name="point_a" id="trucking_point_a">
+                            <div class="col-md-12"><hr /></div>
+                            <div class="col-md-12">
+                              <button type="button" class="btn btn-block btn-warning" onclick="refreshTrucking()">Очистить</button>
+                              <div><br /></div>
+                              <button type="button" class="btn btn-block btn-info">Сохранить</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-4">
+          <div class="orderList">
+            <div class="container-fluid">
+              <div class="row"><h4 class="orderHeader">Состав заказа</h4></div>
+              <br />
+              <div class="row">
+                <ul class="list-group" style="width: 100%">
+                  <li class="list-group-item" ng-repeat="item in cart track by $index">
+                    <div class="brandName">
+                      <div class="container-fluid">
+                        <div class="row row-no-padding">
+                          <div class="col-md-4 col-sm-4 col-xs-4">
+                            <img ng-src="{{ item.Image }}" width="80" alt="item image"> 
+                          </div>
+                          <div class="col-md-8 col-sm-8 col-xs-8">
+                            <h5>{{ item.brand }}</h5>
+                            <span class="itemCount">{{ item.count + 'шт x ' + getCost(item) + ' сум'}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <hr />
+              </div>
+              <br>
+              <div class="row">
+                <hr >
+                <h4>Умумий: <span class="total">{{ getTotal() }} сум</span></h4>
+              </div>
+              <br>
+              <div class="row">
+                <hr />
+                <button type="button" class="btn btn-block btn-info">Оформить заказ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script>
+      $( document ).ready(function() {
+        $("#phone").mask("+998 (dd) ddd-dd-dd");
+      });
+    </script>
+    <script src="data/js/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        //----- Maps Scripts Start -----//
+        var navigationMap;
+        var startPoint = false;
+        var distance = 0;
+        var path;
+  
+        function initMaps() {
+  
+            navigationMap = new ymaps.Map("navigationMap1", {
+              center: [41.3109772515277, 69.27950934178443],
+              zoom: 14,
+              controls: []
+            }, {searchControlProvider: 'yandex#search'});
+  
+            navigationMap.controls.add('geolocationControl');
+            navigationMap.controls.add('searchControl');
+            navigationMap.controls.add('zoomControl');
+            navigationMap.controls.get('searchControl').options.set('size', 'large');
+  
+            navigationMap.events.add('click', function (event) {
+                var coords = event.get('coords');
+                if (startPoint === false) {
+                    startPoint = new ymaps.Placemark(coords, {balloonContent: 'Пункт А'}, {
+                        draggable: true,
+                        preset: 'islands#redHomeIcon',
+                        iconColor: '#F44336'
+                    });
+                    navigationMap.geoObjects.add(startPoint);
+  
+                    startPoint.events.add('dragend', function () {
+                        setPoint(startPoint);
+                    });
+  
+                    setPoint(startPoint);
+                    return;
+                }
+            })
+        }
+  
+        function setPoint(placemark) {
+            var coords = placemark.geometry.getCoordinates();
+            ymaps.geocode(coords).then(function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+                if (placemark === startPoint) {
+                    document.getElementById("trucking_address_a").value = firstGeoObject.getAddressLine();
+                    document.getElementById("trucking_point_a").value = coords;
+                }
+  
+            });
+        }
+  
+        // function setStartPoint() {
+        //     if (startPoint !== false) {
+        //         navigationMap.geoObjects.remove(startPoint);
+        //         navigationMap.geoObjects.remove(path);
+        //         startPoint = false;
+        //         path = null;
+        //         document.getElementById("trucking_address_a").value =
+        //                         document.getElementById("trucking_point_a").value = "";
+        //     }
+        // }
+  
+        ymaps.ready(initMaps);
+        function refreshTrucking() {
+                document.getElementById("trucking_address_a").value =
+                                document.getElementById("trucking_point_a").value = "";
+                startPoint = endPoint = false;
+                navigationMap.geoObjects.removeAll();
+            }
+        //----- Maps Scripts End -----//
+    </script>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <h4>Биз билан алока қилиш</h4>
+        </div>
+        <div class="row upperFooter">
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-map-o" aria-hidden="true"></i> г. Ташкент, ул. Уста Ширин 100</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +998(99) 999-99-99</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> shirtstore@company.com</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-globe" aria-hidden="true"></i> shirtstore.com</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row bottomFooter">
+          <div class="col-md-3">
+            <div class="topbar-social">
+              <a href="#" class="topbar-social-item fa fa-facebook"></a>
+              <a href="#" class="topbar-social-item fa fa-instagram"></a>
+              <a href="#" class="topbar-social-item fa fa fa-telegram"></a>
+              <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <p>Copyright © 2003-2019 shirtShop. All rights reserved.
+              All works are property of their respective owners and may not be used elsewhere without written permission.</p>
+          </div>
+          <div class="col-md-3">
+            <h1><i class="fa fa-cc-visa" aria-hidden="true"></i> <i class="fa fa-cc-mastercard" aria-hidden="true"></i> <i class="fa fa-cc-paypal" aria-hidden="true"></i></h1>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
