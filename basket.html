@@ -51,7 +51,7 @@
       <button class="navbar-toggler toggle-btn" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
           ☰
       </button>
-      <a class="navbar-brand" href="#"> >Brand< </a>
+      <a class="navbar-brand" href="index.html"> >Brand< </a>
       <ul class="nav topIcons">
         <li>
           <a href="login.html"><img src="data/images/icons/icon-header-01.png" alt="user"></a>
@@ -194,26 +194,21 @@
                   <h6>Умумий: {{ getTotal() + ' сўм' }}</h6>
                   <hr>
                   <button class="btn btn-success btn-sm" onclick="location.href = 'checkout.html'">Оформить заказ</button>
-                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Очистить корзину</button>
-                  <!-- The Modal -->
-                  <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                          <h4 class="modal-title">Тасдиқлаш</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                          <p>Саватчани бўшатмоқчимисиз?</p>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" ng-click="clearCart()">Ҳа</button>
-                          <button type="button" class="btn btn-success" data-dismiss="modal">Йўқ</button>
-                        </div>
-                      </div>
+                  <button type="button" class="btn btn-danger btn-sm" ng-click="clearCartConfirm = true">Очистить корзину</button>
+                  <br><br>
+                  <div class="modal-content" ng-show="clearCartConfirm">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Тасдиқлаш</h4>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <p>Саватчани бўшатмоқчимисиз?</p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" ng-click="clearCart(); clearCartConfirm = false">Ҳа</button>
+                      <button type="button" class="btn btn-success" ng-click="clearCartConfirm = false">Йўқ</button>
                     </div>
                   </div>
                 </div>

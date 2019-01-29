@@ -2,26 +2,26 @@ var data = [{
   id: 1,
   brand: 'product1',
   price: 100000,
-  Image: "/data/images/3.jpg"
-  //Image: "/shirtShop.github.io/data/images/3.jpg"
+  //Image: "/data/images/3.jpg"
+  Image: "/shirtShop.github.io/data/images/3.jpg"
 },{
   id: 2,
   brand: 'product2',
   price: 145000,
-  Image: '/data/images/4.jpg'
-  //Image: '/shirtShop.github.io/data/images/4.jpg'
+  //Image: '/data/images/4.jpg'
+  Image: '/shirtShop.github.io/data/images/4.jpg'
 },{
   id: 3,
   brand: 'product3',
   price: 132000,
-  Image: '/data/images/5.jpg'
-  //Image: '/shirtShop.github.io/data/images/5.jpg'
+  //Image: '/data/images/5.jpg'
+  Image: '/shirtShop.github.io/data/images/5.jpg'
 },{
   id: 4,
   brand: 'product4',
   price: 99900,
-  Image: '/data/images/6.jpg'
-  //Image: '/shirtShop.github.io/data/images/6.jpg'
+  //Image: '/data/images/6.jpg'
+  Image: '/shirtShop.github.io/data/images/6.jpg'
 }];
 
 
@@ -102,12 +102,12 @@ app.controller('cart', function ($scope) {
   $scope.getTotal = function() {
     var total = 0;
     angular.forEach($scope.cart, function(item) {
-      if ($('.delivery').value === 'express') {
-        total += (item.price * item.count) + 15000;
-      }
-      else{
+      // if ($('.delivery').value === 'express') {
+      //   total += (item.price * item.count) + 15000;
+      // }
+      // else{
         total += item.price * item.count;
-      }
+      //}
     })
     return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     saveCart();
@@ -122,7 +122,7 @@ app.controller('cart', function ($scope) {
     $scope.cart.length = 0;
     $scope.total = 0;
     saveCart();
-    $('.modal-backdrop').hide();
+    //$('.modal-backdrop').hide();
   };
   
 	$scope.removeItemCart = function(product){
