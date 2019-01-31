@@ -793,6 +793,29 @@ a{
     }
   }
 }
+
+//contact Us Page
+.contactUsPage{
+  margin: 50px 0;
+  .inner-box{
+    padding: 20px;
+    box-shadow: 0 3px 10px #999999;
+    margin: 10px;
+    .contactForm{
+      padding: 5px;
+      input,textarea{
+        margin: 20px 0;
+        resize: none;
+        outline: none!important
+      }
+    }
+    h4{
+      font-family: montserrat-regular;
+      margin-bottom: 30px;
+    }
+  }
+}
+
 .swal2-popup #swal2-content{
   font-size: 20px;
 }
@@ -1105,6 +1128,11 @@ a{
 }
 
 @include mediaMaxWidth(768px, portrait){
+  .inner-box{
+    h4{
+      margin-top: 20px;
+    }
+  }
   .login-input-forms,.register-input-forms{
     button{
       font-size: 14px;
@@ -1216,6 +1244,11 @@ a{
 }
 
 @include mediaMaxWidth(768px, landscape){
+  .inner-box{
+    h4{
+      margin-top: 20px;
+    }
+  }
   .topIcons{
     position: relative;
     right: 20px;
@@ -1321,6 +1354,11 @@ a{
 
 
 @include mediaMaxWidth(576px, portrait){
+  .inner-box{
+    h4{
+      margin-top: 20px;
+    }
+  }
   .topIcons{
     position: relative;
     right: 20px;

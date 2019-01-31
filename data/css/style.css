@@ -758,6 +758,27 @@ a {
   margin: 0;
 }
 
+.contactUsPage {
+  margin: 50px 0;
+}
+.contactUsPage .inner-box {
+  padding: 20px;
+  box-shadow: 0 3px 10px #999999;
+  margin: 10px;
+}
+.contactUsPage .inner-box .contactForm {
+  padding: 5px;
+}
+.contactUsPage .inner-box .contactForm input, .contactUsPage .inner-box .contactForm textarea {
+  margin: 20px 0;
+  resize: none;
+  outline: none !important;
+}
+.contactUsPage .inner-box h4 {
+  font-family: montserrat-regular;
+  margin-bottom: 30px;
+}
+
 .swal2-popup #swal2-content {
   font-size: 20px;
 }
@@ -1050,6 +1071,10 @@ a {
   }
 }
 @media only screen and (max-width: 768px) and (orientation: portrait) {
+  .inner-box h4 {
+    margin-top: 20px;
+  }
+
   .login-input-forms button, .register-input-forms button {
     font-size: 14px;
     padding: 20px;
@@ -1158,6 +1183,10 @@ a {
   }
 }
 @media only screen and (max-width: 768px) and (orientation: landscape) {
+  .inner-box h4 {
+    margin-top: 20px;
+  }
+
   .topIcons {
     position: relative;
     right: 20px;
@@ -1258,6 +1287,10 @@ a {
   }
 }
 @media only screen and (max-width: 576px) and (orientation: portrait) {
+  .inner-box h4 {
+    margin-top: 20px;
+  }
+
   .topIcons {
     position: relative;
     right: 20px;

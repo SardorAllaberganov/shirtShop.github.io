@@ -110,49 +110,29 @@
         </ul>
       </div>
     </nav>
-
-    <!-- register page -->
-    <section class="register">
-      <h1 class="text-center register-title">
-        Registration
-      </h1>
+      
+    <section class="contactUsPage">
       <div class="container-fluid">
-        <div class="row register-desc">
-          <h6>
-            Become a Tailor Store member for free and get exclusive promotional offers and news via email. 
-            You will also get the chance to learn more about the craft of tailored clothes and our CSR work, 
-            and why tailor-made clothes are better for you and our environment.
-          </h6>
-          <p class="text-center">
-            By creating an account you agree to our <a href="">privacy policy</a> 
-          </p>
-        </div>
-        <div class="row">
-          <div class="mx-auto register-input-forms">
-            <form action="" class="register-forms">
-              <div><input type="text" class="form-control" placeholder="Электрон почта адреси"></div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Исм">
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Фамилия">
-                </div> 
-              </div>
-              <input type="text" class="form-control" placeholder="Парол">
-              <button type="submit" class="login-btn">Create account</button>
-            </form>
+        <div class="row inner-box">
+          <div class="col-md-6">
+            <div class="mapBody" style="height: 100%;">
+              <div id="map" style="height: 100%; width: 100%;"></div>
+            </div>
           </div>
-        </div>
-        <h4 class="text-center">Or</h4>
-        <div class="row">
-          <div class="mx-auto register-input-forms">
-            <button type="submit" class="facebook-btn"><i class="fa fa-facebook-official" aria-hidden="true"></i> Create account with Facebook</button>
-            <button type="submit" class="google-btn"><img src="data/images/icons/google-logo.svg" alt="google-logo"> Create account with Google</button>
+          <div class="col-md-6">
+            <h4 class="text-center contactFormTitle">Хабар жўнатинг</h4>
+            <form action="" class="contactForm">
+              <input type="text" class="form-control" placeholder="Исм Шариф">
+              <input type="text" class="form-control" placeholder="Телефон рақам">
+              <input type="text" class="form-control" placeholder="Электрон почта">
+              <textarea name="" id="" rows="5" class="form-control" placeholder="Хабар"></textarea>
+              <button type="button" class="btn btn-success">Жўнатиш</button>
+            </form>
           </div>
         </div>
       </div>
     </section>
+    
 
     <!-- Footer -->
     <footer class="footer">
@@ -195,5 +175,37 @@
       </div>
     </footer>
   </div>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+  <script>
+    ymaps.ready(init);
+
+    function init() {
+      var myMap = new ymaps.Map("map", {
+        center: [41.3109772515277, 69.27950934178443],
+        zoom: 16,
+        controls: ['searchControl', 'zoomControl']
+      }, {
+          searchControlProvider: 'yandex#search',
+      }),
+      
+      // Создаем геообъект с типом геометрии "Точка".
+      myGeoObject = new ymaps.GeoObject({
+        // Описание геометрии.
+        geometry: {
+          type: "Point",
+          coordinates: [41.3109772515277, 69.27950934178443]
+          },
+        }, {
+          // Опции.
+          // Иконка метки будет растягиваться под размер ее содержимого.
+          preset: 'islands#redDotIcon',
+          // Метку можно перемещать.
+          draggable: false
+        });
+        myMap.geoObjects.add(myGeoObject);
+        myMap.behaviors.disable('scrollZoom'); 
+    }
+  
+  </script>
 </body>
 </html>
