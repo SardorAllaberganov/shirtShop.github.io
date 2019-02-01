@@ -659,6 +659,11 @@ a{
     }
   }
 }
+.forgotPassIcon{
+  i{
+    font-size: 100px;
+  }
+}
 .login,.register{
   &-title{
     font-family: montserrat-medium;
@@ -677,6 +682,7 @@ a{
       width: 30px;
     }
   }
+  
   h4{
     margin: 30px auto;
     position: relative;
@@ -732,11 +738,14 @@ a{
         margin-right: 1em;
       }
     }
-    input{
+    input[type="text"]{
       margin: 20px 0;
       border-radius: 0;
       max-width: 610px;
       width: 100%;
+    }
+    .custom-control{
+      margin: 20px 0;
     }
   }
   .forgotPass{
