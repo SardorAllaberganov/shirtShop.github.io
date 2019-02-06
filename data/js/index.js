@@ -36,6 +36,16 @@ $('.carousel').carousel({
   interval: 2000
 });
 
+
+$(document).ready(function () {
+  $('.showFilterBtn').click(function () {
+    $('.filterBar').addClass('showFilter');
+  });
+  $('.hideBtn').click(function () {
+    $('.filterBar').removeClass('showFilter');
+  });
+});
+
 // $(function(){
 //   $(".dropdown").hover(            
 //     function() {

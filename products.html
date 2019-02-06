@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shirtShop">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Shirt Shop</title>
+  <link rel="shortcut icon" href="data/images/logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="data/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <link rel="stylesheet" href="data/css/animate.css">  
+  <link rel="stylesheet" href="data/css/style.css">
+  <script src="data/js/index.js"></script>
+  <script src="data/js/cart.js"></script>
+  
+</head>
+<body ng-controller="cart as cart">
+  <div ng-controller="productController">
+    <!-- header -->
+    <ul class="nav topbar">
+      <li class="nav-item social-items">
+        <div class="topbar-social">
+          <a href="#" class="topbar-social-item fa fa-facebook"></a>
+          <a href="#" class="topbar-social-item fa fa-instagram"></a>
+          <a href="#" class="topbar-social-item fa fa fa-telegram"></a>
+          <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto topbar-child1">
+        <span>O'zimiz yetkazib beramiz!</span>
+      </li>
+      <li class="nav-item topbar-child1">
+        <span>name@example.com</span>
+      </li>
+      <li class="nav-item currency">
+        <form>
+          <select>
+            <option value="usd">USD</option>
+            <option value="sum">SUM</option>
+          </select>
+        </form>
+      </li>
+    </ul>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" data-toggle="affix">
+      <button class="navbar-toggler toggle-btn" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          ☰
+      </button>
+      <a class="navbar-brand" href="index.html"> >Brand< </a>
+      <ul class="nav topIcons">
+        <li>
+          <a href="login.html"><img src="data/images/icons/icon-header-01.png" alt="user"></a>
+        </li>
+        <li class="linedivide1"> | </li>
+        <li class="dropdown">
+          <img src="data/images/icons/icon-header-02.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON">
+          <span class="header-icons-noti"><p> {{ cart.length }} </p></span>
+          <div class="dropdown-menu">
+            <h5 class="dropdown-header">Savatcha</h5>
+            <ul class="cartList">
+              <li class="cartListItem dropdow-item" ng-repeat="item in cart track by $index">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="productBrand"> {{ item.brand }} </p>
+                      <input type="text" readonly ng-model="item.count" class="productCount" />
+                      <span> {{ 'ta = ' + getCost(item) }} </span>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-danger btn-sm" ng-click="removeItem(item);">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <h5 class="dropdown-header">Dropdown header</h5>
+            <p class="totalSum">Total: {{ getTotal() + ' сўм'}}</p>
+            <hr>
+            <p class="text-center basket-btn">
+              <a href="basket.html"> Savatchani tekshirish </a>
+            </p>
+          </div>
+        </li> 
+      </ul>
+      
+      <div class="collapse navbar-collapse" id="collapsingNavbar">
+        <ul class="nav navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Bosh sahifa</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="products.html">Tovarlar</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="about.html">Biz haqimizda</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="contactus.html">Bog'lanish</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="products">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 filterBar">
+            <button type="button" class="btn hideBtn">X</button>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="true" aria-controls="collapseExample1">
+                  Нарҳлар оралиғи<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample1">
+                  <div class="card card-body mt-2">
+                    <!-- <select  class="form-control" name="productType" id="productType" ng-model="filter.type" ng-options="orderList for orderList in productType">
+                      <option value="" disabled selected hidden>Выбрать</option>
+                    </select> -->
+                    <button ng-click="typeFilter('luxury')">Luxury</button>
+                    <button ng-click="typeFilter('premium')">Premium</button>
+                    <button ng-click="typeFilter('essentials')">Essentials</button>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2">
+                Link with href<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample2">
+                  <div class="card card-body mt-2">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  </div>
+                </div>
+              </li>
+              
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="true" aria-controls="collapseExample3">
+                Link with href<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample3">
+                  <div class="card card-body mt-2">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item px-0"><input type="reset" ng-click="resetFilter()" class="btn btn-primary" value="Сброс"></li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <button type="button" class="btn btn-outline-primary showFilterBtn">Show Filters</button>
+            <div class="row ">
+              <div class="col-md-4 col-sm-4 mb-2" ng-repeat="product in product | filter:theFilter">
+                <div class="card" style="width:100%">
+                  <span class="newIcon">New</span>
+                  <div class="cardImageBlock">
+                    <img class="card-img-top" ng-src="{{product.Image}}" alt="Card image">
+                  </div>
+                  <div class="card-body">
+                    <div class="row row-no-padding">
+                      <div class="col-md-9 col-sm-8 col-xs-8">
+                        <h5 class="card-title"> {{ product.brand }} </h5>
+                        <p class="card-text"> {{ product.price + ' сўм' }} </p>
+                      </div>
+                      <div class="col-md-3 col-sm-4 col-xs-4">
+                        <button class="btn btn-primary btn-sm block2-btn-addcart" ng-click="addItem(product)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div ng-repeat="product in products">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                    <div class="col-sm-4">
+                        <h2>{{product.title}}</h2>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <h4>Биз билан алока қилиш</h4>
+        </div>
+        <div class="row upperFooter">
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-map-o" aria-hidden="true"></i> г. Ташкент, ул. Уста Ширин 100</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +998(99) 999-99-99</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> shirtstore@company.com</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-globe" aria-hidden="true"></i> shirtstore.com</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row bottomFooter">
+          <div class="col-md-3">
+            <div class="topbar-social">
+              <a href="#" class="topbar-social-item fa fa-facebook"></a>
+              <a href="#" class="topbar-social-item fa fa-instagram"></a>
+              <a href="#" class="topbar-social-item fa fa fa-telegram"></a>
+              <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <p>Copyright © 2003-2019 shirtShop. All rights reserved.
+              All works are property of their respective owners and may not be used elsewhere without written permission.</p>
+          </div>
+          <div class="col-md-3">
+            <h1><i class="fa fa-cc-visa" aria-hidden="true"></i> <i class="fa fa-cc-mastercard" aria-hidden="true"></i> <i class="fa fa-cc-paypal" aria-hidden="true"></i></h1>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -2,40 +2,65 @@ var data = [{
   id: 1,
   brand: 'product1',
   price: 100000,
+  type: 'premium',
   //Image: "/data/images/3.jpg"
   Image: "/shirtShop.github.io/data/images/3.jpg"
 },{
   id: 2,
   brand: 'product2',
   price: 145000,
+  type: 'luxury',
   //Image: '/data/images/4.jpg'
   Image: '/shirtShop.github.io/data/images/4.jpg'
 },{
   id: 3,
   brand: 'product3',
   price: 132000,
+  type: 'luxury',
   //Image: '/data/images/5.jpg'
   Image: '/shirtShop.github.io/data/images/5.jpg'
 },{
   id: 4,
   brand: 'product4',
   price: 99900,
+  type: 'essentials',
   //Image: '/data/images/6.jpg'
-  Image: '/shirtShop.github.io/data/images/6.jpg'
+  Image: '/shirtShop.github.io/data/images/6.jpg',
 }];
 
+var productType = ['luxury','essentials', 'premium'];
 
 angular.module('shirtShop', ['ngAnimate']);
 var app = angular.module("shirtShop", []);
 
 app.controller("productController", ["$scope", function ($products) {
   $products.product = data;
+  $products.productType = productType;
+  $products.filter = {};
+
+  $products.theFilter = {};
+  
+  $products.typeFilter = function(type) {
+    if ($products.theFilter.type === type) {
+      $products.theFilter = {};
+    }
+    else {
+      $products.theFilter.type = type;
+    }
+  };
+
+  // reset the filter
+  $products.resetFilter = function() {
+    // set filter object as blank
+    $products.theFilter = {};
+  }
   this.codeVerification1 = true;
   this.codeVerification = false;
   this.codeVerification = function(){
     this.codeVerification = true;
     this.codeVerification1 = false;
   }
+ 
   
       // define list of items
   // $product.productBrand = productBrand;

@@ -775,6 +775,75 @@ a{
   }
 }
 
+
+//about page style
+.aboutUsPage{
+  img{
+    width: 100%;
+  }
+  h6{
+    line-height: 1.5em;
+    letter-spacing: .1em;
+  }
+}
+
+//blog page style
+.blogPage{
+  img{
+    object-fit: cover;
+    max-height: 250px;
+  }
+}
+.filterBar{
+
+  .hideBtn{
+    display: none;
+  }
+  .btn {
+    box-shadow: none !important;
+    outline: 0;
+  }
+  
+  a:link,
+  a:visited {
+    color: #222;
+  }
+  
+  a:hover{
+    color: orange;
+  }
+  .list-group-item{
+    background: none;
+    border: none;
+    .card-body{
+      border: none;
+    }
+    span {
+      border: solid #222;
+      border-width: 0 1px 1px 0;
+      display: inline;
+      cursor: pointer;
+      padding: 3px;
+      position: absolute;
+      right: 0;
+      margin-top: 10px;
+    }
+  }
+  
+  .list-group-item a.btn.collapsed span {
+    transform: rotate(40deg);
+    -webkit-transform: rotate(40deg);
+    transition: .3s transform ease-in-out;
+  }
+  
+  
+  .list-group-item a.btn span {
+    transform: rotate(-140deg);
+    -webkit-transform: rotate(-140deg);
+    transition: .3s transform ease-in-out;
+  }
+}
+
 // footer style
 .footer{
   margin-top: 20px;
@@ -844,6 +913,9 @@ a{
   }
 }
 @include mediaMinWidth(1200px, landscape){
+  .showFilterBtn{
+    display: none;
+  }
   .login-input-forms, .register-input-forms{
     button{
       font-size: 19.2px;
@@ -952,6 +1024,9 @@ a{
   }
 }
 @include mediaMaxWidth(1200px, portrait){
+  .showFilterBtn{
+    display: none;
+  }
   .login-input-forms,.register-input-forms{
     button{
       font-size: 19.2px;
@@ -999,73 +1074,10 @@ a{
     }
   }
 }
-
-@include mediaMaxWidth(1200px, landscape){
-  .login-input-forms,.register-input-forms{
-    button{
-      font-size: 14px;
-      padding: 20px 60px 22px;
-    }
-  }
-  .topIcons{
-    position: absolute;
-    right: 50px;
-    .header-icons-noti{
-      right: -10px;
-    }
-  } 
-  .carousel{
-    &-prev{
-      left: 40px;
-    }
-    &-next{
-      right: 40px;
-    }
-    &-caption{
-      width: 100%;
-    }
-  }
-  .md-text1{
-    font-size: 18px;
-  }
-  .xl-text1{
-    font-size: 60px;
-  }
-  .fabricsCatalog{
-    &:last-child{margin: 20px 10px;}
-    p{
-      font-size: 20px;
-      -webkit-line-clamp: 9;
-    }
-    &Caption{
-      h4{
-        font-size: 2em;
-      }
-      h1{
-        font-size: 3em;
-      }
-      p.seeMoreFabrics{
-        font-size: 1.5rem;
-      }
-    }
-    a.seeMoreBtn{
-      font-size: 15px;
-    }
-  }
-  .instaBlocks{
-    margin-bottom: 70px;
-    display: flex;
-    position: relative;
-    width: 20%;
-    float: left;
-    height: 250px;
-    a{
-      font-size: 11px;
-      padding: 15px;
-    }
-  }
-}
 @include mediaMaxWidth(992px, landscape){
+  .showFilterBtn{
+    display: none;
+  }
   .login-input-forms,.register-input-forms{
     button{
       font-size: 14px;
@@ -1137,6 +1149,37 @@ a{
 }
 
 @include mediaMaxWidth(768px, portrait){
+  .hideBtn{
+    display: block!important;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+  .filterBar{
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.2s;
+    padding: 40px 20px;
+    height: 100%;
+    .list-group{
+      margin-top: 50px;
+    }
+  }
+  .showFilter{
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    background: #fff;
+    z-index: 9999;
+  }
+  .showFilterBtn{
+    display: block;
+  }
   .inner-box{
     h4{
       margin-top: 20px;
@@ -1253,6 +1296,15 @@ a{
 }
 
 @include mediaMaxWidth(768px, landscape){
+  .filterBar{
+    display: none;
+    width: 0;
+    position: absolute;
+    left: 0;
+  }
+  .showFilterBtn{
+    display: block;
+  }
   .inner-box{
     h4{
       margin-top: 20px;
