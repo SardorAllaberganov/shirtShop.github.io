@@ -794,10 +794,47 @@ a{
     max-height: 250px;
   }
 }
-.filterBar{
 
+
+.filterBar{
   .hideBtn{
     display: none;
+  }
+  .cool-link{
+    transition: all .35s;
+    border-bottom: 1px solid transparent;
+    &:hover{
+      border-bottom: 1px solid #333333;
+    }
+  }
+  .checkbox-color-filter {
+    display: none;
+  }
+  .color-filter {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #888888;
+    cursor: pointer;
+    border-radius: 50%;
+    &1{
+      background-color: white;
+    }
+    &2 {
+      background-color: lightblue;
+    }
+    &3{
+      background-color: blue;
+    }
+    &4 {
+      background-color: black;
+    }
+    &5{
+      background-color: red;
+    }
+    &6 {
+      background-color: pink;
+    }
   }
   .btn {
     box-shadow: none !important;
@@ -1170,8 +1207,8 @@ a{
     }
   }
   .showFilter{
-    height: 100%;
     width: 100%;
+    padding: 0 20px;
     visibility: visible;
     opacity: 1;
     background: #fff;
@@ -1296,11 +1333,33 @@ a{
 }
 
 @include mediaMaxWidth(768px, landscape){
+  .hideBtn{
+    display: block!important;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
   .filterBar{
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     width: 0;
     position: absolute;
     left: 0;
+    top: 0;
+    transition: all 0.2s;
+    padding: 40px 20px;
+    height: 100%;
+    .list-group{
+      margin-top: 50px;
+    }
+  }
+  .showFilter{
+    width: 100%;
+    height: 200%;
+    visibility: visible;
+    opacity: 1;
+    background: #fff;
+    z-index: 9999;
   }
   .showFilterBtn{
     display: block;

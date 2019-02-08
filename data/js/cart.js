@@ -3,6 +3,7 @@ var data = [{
   brand: 'product1',
   price: 100000,
   type: 'premium',
+  color: 'dark-blue',
   //Image: "/data/images/3.jpg"
   Image: "/shirtShop.github.io/data/images/3.jpg"
 },{
@@ -10,6 +11,7 @@ var data = [{
   brand: 'product2',
   price: 145000,
   type: 'luxury',
+  color: 'light-blue',
   //Image: '/data/images/4.jpg'
   Image: '/shirtShop.github.io/data/images/4.jpg'
 },{
@@ -17,27 +19,24 @@ var data = [{
   brand: 'product3',
   price: 132000,
   type: 'luxury',
+  color: 'white',
   //Image: '/data/images/5.jpg'
   Image: '/shirtShop.github.io/data/images/5.jpg'
 },{
   id: 4,
   brand: 'product4',
   price: 99900,
+  color: 'white',
   type: 'essentials',
   //Image: '/data/images/6.jpg'
   Image: '/shirtShop.github.io/data/images/6.jpg',
 }];
-
-var productType = ['luxury','essentials', 'premium'];
 
 angular.module('shirtShop', ['ngAnimate']);
 var app = angular.module("shirtShop", []);
 
 app.controller("productController", ["$scope", function ($products) {
   $products.product = data;
-  $products.productType = productType;
-  $products.filter = {};
-
   $products.theFilter = {};
   
   $products.typeFilter = function(type) {
@@ -48,11 +47,15 @@ app.controller("productController", ["$scope", function ($products) {
       $products.theFilter.type = type;
     }
   };
+  $products.colorFilter = function(color) {
+    $products.theFilter.color = color;
+  };
 
   // reset the filter
   $products.resetFilter = function() {
     // set filter object as blank
     $products.theFilter = {};
+    $products.searchProduct = "";
   }
   this.codeVerification1 = true;
   this.codeVerification = false;

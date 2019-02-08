@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
   <link rel="stylesheet" href="data/css/animate.css">  
   <link rel="stylesheet" href="data/css/style.css">
   <script src="data/js/index.js"></script>
@@ -126,43 +127,76 @@
                     <!-- <select  class="form-control" name="productType" id="productType" ng-model="filter.type" ng-options="orderList for orderList in productType">
                       <option value="" disabled selected hidden>Выбрать</option>
                     </select> -->
-                    <button ng-click="typeFilter('luxury')">Luxury</button>
-                    <button ng-click="typeFilter('premium')">Premium</button>
-                    <button ng-click="typeFilter('essentials')">Essentials</button>
+                    <button class="btn text-left cool-link" ng-click="typeFilter('luxury')">Luxury - From $99</button>
+                    <button class="btn text-left cool-link" ng-click="typeFilter('premium')">Premium - From $79</button>
+                    <button class="btn text-left cool-link" ng-click="typeFilter('essentials')">Essentials - From $55</button>
                   </div>
                 </div>
               </li>
               
               <li class="list-group-item px-0">
                 <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2">
-                Link with href<span class="mr-3"></span>
+                Категориялар<span class="mr-3"></span>
                 </a>
                 <div class="collapse show" id="collapseExample2">
                   <div class="card card-body mt-2">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+
                   </div>
                 </div>
               </li>
-              
               <li class="list-group-item px-0">
                 <a class="btn collapsed" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="true" aria-controls="collapseExample3">
-                Link with href<span class="mr-3"></span>
+                Ранглар<span class="mr-3"></span>
                 </a>
                 <div class="collapse show" id="collapseExample3">
                   <div class="card card-body mt-2">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <ul class="nav d-flex justify-content-center">
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="colorFilter('white')" id="color-filter1" type="checkbox" name="color-filter1">
+                        <label class="color-filter color-filter1" for="color-filter1"></label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="colorFilter('light-blue')" id="color-filter2" type="checkbox" name="color-filter2">
+                        <label class="color-filter color-filter2" for="color-filter2"></label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="colorFilter('dark-blue')" id="color-filter3" type="checkbox" name="color-filter3">
+                        <label class="color-filter color-filter3" for="color-filter3"></label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="colorFilter('black')" id="color-filter4" type="checkbox" name="color-filter4">
+                        <label class="color-filter color-filter4" for="color-filter4"></label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="colorFilter('red')" id="color-filter5" type="checkbox" name="color-filter5">
+                        <label class="color-filter color-filter5" for="color-filter5"></label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="colorFilter('pink')" id="color-filter6" type="checkbox" name="color-filter6">
+                        <label class="color-filter color-filter6" for="color-filter6"></label>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </li>
-              <li class="list-group-item px-0"><input type="reset" ng-click="resetFilter()" class="btn btn-primary" value="Сброс"></li>
             </ul>
+            <input type="text" class="form-control" ng-model="searchProduct" placeholder="Маҳсулот қидириш...">
+            <div class="px-0 my-3 d-flex justify-content-center">
+              <input type="reset" ng-click="resetFilter()" class="btn btn-primary" value="Сброс">
+            </div>
           </div>
           <div class="col-md-9">
-            <button type="button" class="btn btn-outline-primary showFilterBtn">Show Filters</button>
+            <div class="d-flex justify-content-center my-4">
+              <button type="button" class="btn btn-outline-primary showFilterBtn">Show Filters</button>
+            </div>
             <div class="row ">
-              <div class="col-md-4 col-sm-4 mb-2" ng-repeat="product in product | filter:theFilter">
+              <div class="col-md-4 col-sm-4 mb-4" ng-repeat="product in product | filter:theFilter | filter: searchProduct">
                 <div class="card" style="width:100%">
-                  <span class="newIcon">New</span>
                   <div class="cardImageBlock">
                     <img class="card-img-top" ng-src="{{product.Image}}" alt="Card image">
                   </div>
@@ -180,14 +214,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-                <div ng-repeat="product in products">
-                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                    <div class="col-sm-4">
-                        <h2>{{product.title}}</h2>
-                    </div>
-                </div>
-            </div>
+            
           </div>
         </div>
       </div>

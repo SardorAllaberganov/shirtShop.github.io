@@ -755,6 +755,42 @@ a {
 .filterBar .hideBtn {
   display: none;
 }
+.filterBar .cool-link {
+  transition: all 0.35s;
+  border-bottom: 1px solid transparent;
+}
+.filterBar .cool-link:hover {
+  border-bottom: 1px solid #333333;
+}
+.filterBar .checkbox-color-filter {
+  display: none;
+}
+.filterBar .color-filter {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #888888;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.filterBar .color-filter1 {
+  background-color: white;
+}
+.filterBar .color-filter2 {
+  background-color: lightblue;
+}
+.filterBar .color-filter3 {
+  background-color: blue;
+}
+.filterBar .color-filter4 {
+  background-color: black;
+}
+.filterBar .color-filter5 {
+  background-color: red;
+}
+.filterBar .color-filter6 {
+  background-color: pink;
+}
 .filterBar .btn {
   box-shadow: none !important;
   outline: 0;
@@ -1103,8 +1139,8 @@ a {
   }
 
   .showFilter {
-    height: 100%;
     width: 100%;
+    padding: 0 20px;
     visibility: visible;
     opacity: 1;
     background: #fff;
@@ -1227,11 +1263,35 @@ a {
   }
 }
 @media only screen and (max-width: 768px) and (orientation: landscape) {
+  .hideBtn {
+    display: block !important;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+
   .filterBar {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     width: 0;
     position: absolute;
     left: 0;
+    top: 0;
+    transition: all 0.2s;
+    padding: 40px 20px;
+    height: 100%;
+  }
+  .filterBar .list-group {
+    margin-top: 50px;
+  }
+
+  .showFilter {
+    width: 100%;
+    height: 200%;
+    visibility: visible;
+    opacity: 1;
+    background: #fff;
+    z-index: 9999;
   }
 
   .showFilterBtn {
