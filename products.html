@@ -236,34 +236,34 @@
                 <div class="collapse show" id="collapseExample2">
                   <div class="card card-body mt-2">
                     <ul class="nav flex-column">
-                      <li class="m-r-10 mx-1">
+                      <li class="m-r-10 mx-1 cool-link">
                         <input class="checkbox-color-filter" ng-click="patternFilter('solid')" id="pattern-filter1" type="checkbox" name="color-filter1">
                         <img src="data/images/pattern/solid.svg" class="pattern-img" alt="solid-pattern">
-                        <label class="pattern-filter cool-link" for="pattern-filter1">Solid</label>
+                        <label class="pattern-filter" for="pattern-filter1">Solid</label>
                       </li>
       
-                      <li class="m-r-10 mx-1">
+                      <li class="m-r-10 mx-1 cool-link">
                         <input class="checkbox-color-filter" ng-click="patternFilter('striped')" id="pattern-filter2" type="checkbox" name="color-filter2">
                         <img src="data/images/pattern/striped.svg" class="pattern-img" alt="stripped-pattern">
-                        <label class="pattern-filter cool-link" for="pattern-filter2">Stripped</label>
+                        <label class="pattern-filter" for="pattern-filter2">Stripped</label>
                       </li>
       
-                      <li class="m-r-10 mx-1">
+                      <li class="m-r-10 mx-1 cool-link">
                         <input class="checkbox-color-filter" ng-click="patternFilter('checked')" id="pattern-filter3" type="checkbox" name="color-filter3">
                         <img src="data/images/pattern/checked.svg" class="pattern-img" alt="checked-pattern">
-                        <label class="pattern-filter cool-link" for="pattern-filter3">Checked</label>
+                        <label class="pattern-filter" for="pattern-filter3">Checked</label>
                       </li>
       
-                      <li class="m-r-10 mx-1">
+                      <li class="m-r-10 mx-1 cool-link">
                         <input class="checkbox-color-filter" ng-click="patternFilter('dotted')" id="pattern-filter4" type="checkbox" name="color-filter4">
                         <img src="data/images/pattern/dotted.svg" class="pattern-img" alt="dotted-pattern">
-                        <label class="pattern-filter cool-link" for="pattern-filter4">Dotted</label>
+                        <label class="pattern-filter" for="pattern-filter4">Dotted</label>
                       </li>
       
-                      <li class="m-r-10 mx-1">
+                      <li class="m-r-10 mx-1 cool-link">
                         <input class="checkbox-color-filter" ng-click="patternFilter('printed')" id="pattern-filter5" type="checkbox" name="color-filter5">
                         <img src="data/images/pattern/printed.svg" class="pattern-img" alt="printed-pattern">
-                        <label class="pattern-filter cool-link" for="pattern-filter5">Printed</label>
+                        <label class="pattern-filter" for="pattern-filter5">Printed</label>
                       </li>
                     </ul>
                   </div>
@@ -286,15 +286,16 @@
                     <img class="card-img-top" ng-src="{{product.Image}}" alt="Card image">
                   </div>
                   <div class="card-body">
-                    <div class="row row-no-padding">
+                    <h5 class="card-title"> {{ product.brand }} </h5>
+                    <p class="card-text"> {{ product.price + ' сўм' }} </p>
+                    <a href="" class="row-no-padding">Read more...</a>
+                    <!-- <div class="row row-no-padding">
                       <div class="col-md-9 col-sm-8 col-xs-8">
-                        <h5 class="card-title"> {{ product.brand }} </h5>
-                        <p class="card-text"> {{ product.price + ' сўм' }} </p>
                       </div>
                       <div class="col-md-3 col-sm-4 col-xs-4">
                         <button class="btn btn-primary btn-sm block2-btn-addcart" ng-click="addItem(product)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
