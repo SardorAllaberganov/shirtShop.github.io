@@ -755,6 +755,12 @@ a {
 .filterBar .hideBtn {
   display: none;
 }
+.filterBar .pattern-img {
+  width: 20px;
+  margin-right: 10px;
+  height: 20px;
+  border-radius: 50%;
+}
 .filterBar .cool-link {
   transition: all 0.35s;
   border-bottom: 1px solid transparent;
@@ -794,13 +800,6 @@ a {
 .filterBar .btn {
   box-shadow: none !important;
   outline: 0;
-}
-.filterBar a:link,
-.filterBar a:visited {
-  color: #222;
-}
-.filterBar a:hover {
-  color: orange;
 }
 .filterBar .list-group-item {
   background: none;

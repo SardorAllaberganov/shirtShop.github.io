@@ -133,14 +133,59 @@
                   </div>
                 </div>
               </li>
-              
               <li class="list-group-item px-0">
                 <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2">
                 Категориялар<span class="mr-3"></span>
                 </a>
                 <div class="collapse show" id="collapseExample2">
                   <div class="card card-body mt-2">
-
+                    <ul class="nav flex-column">
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('new-arrivals')" id="category-filter1" type="checkbox" name="color-filter1">
+                        <label class="categoryFilter cool-link" for="category-filter1">New arrivals</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('business-shirts')" id="category-filter2" type="checkbox" name="color-filter2">
+                        <label class="categoryFilter cool-link" for="category-filter2">Business shirts</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('business-casual-shirts')" id="category-filter3" type="checkbox" name="color-filter3">
+                        <label class="category-filter cool-link" for="category-filter3">Business Casual shirts</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('casual-shirts')" id="category-filter4" type="checkbox" name="color-filter4">
+                        <label class="category-filter cool-link" for="category-filter4">Casual shirts</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('denim-shirts')" id="category-filter5" type="checkbox" name="color-filter5">
+                        <label class="category-filter cool-link" for="category-filter5">Denim shirts</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('linen-shirts')" id="category-filter6" type="checkbox" name="color-filter6">
+                        <label class="category-filter cool-link" for="category-filter6">Linen shirts</label>
+                      </li>
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('oxford-shirts')" id="category-filter7" type="checkbox" name="color-filter6">
+                        <label class="category-filter cool-link" for="category-filter6">Oxford shirts</label>
+                      </li>
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('flannel-shirts')" id="category-filter8" type="checkbox" name="color-filter6">
+                        <label class="category-filter cool-link" for="category-filter6">Flannel shirts</label>
+                      </li>
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('easy-iron-shirts')" id="category-filter9" type="checkbox" name="color-filter6">
+                        <label class="category-filter cool-link" for="category-filter6">Easy iron shirts</label>
+                      </li>
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="categoryFilter('formal-shirts')" id="category-filter10" type="checkbox" name="color-filter6">
+                        <label class="category-filter cool-link" for="category-filter6">Formal shirts</label>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -179,6 +224,46 @@
                       <li class="m-r-10 mx-1">
                         <input class="checkbox-color-filter" ng-click="colorFilter('pink')" id="color-filter6" type="checkbox" name="color-filter6">
                         <label class="color-filter color-filter6" for="color-filter6"></label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2">
+                Шаблон<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample2">
+                  <div class="card card-body mt-2">
+                    <ul class="nav flex-column">
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="patternFilter('solid')" id="pattern-filter1" type="checkbox" name="color-filter1">
+                        <img src="data/images/pattern/solid.svg" class="pattern-img" alt="solid-pattern">
+                        <label class="pattern-filter cool-link" for="pattern-filter1">Solid</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="patternFilter('striped')" id="pattern-filter2" type="checkbox" name="color-filter2">
+                        <img src="data/images/pattern/striped.svg" class="pattern-img" alt="stripped-pattern">
+                        <label class="pattern-filter cool-link" for="pattern-filter2">Stripped</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="patternFilter('checked')" id="pattern-filter3" type="checkbox" name="color-filter3">
+                        <img src="data/images/pattern/checked.svg" class="pattern-img" alt="checked-pattern">
+                        <label class="pattern-filter cool-link" for="pattern-filter3">Checked</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="patternFilter('dotted')" id="pattern-filter4" type="checkbox" name="color-filter4">
+                        <img src="data/images/pattern/dotted.svg" class="pattern-img" alt="dotted-pattern">
+                        <label class="pattern-filter cool-link" for="pattern-filter4">Dotted</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1">
+                        <input class="checkbox-color-filter" ng-click="patternFilter('printed')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <img src="data/images/pattern/printed.svg" class="pattern-img" alt="printed-pattern">
+                        <label class="pattern-filter cool-link" for="pattern-filter5">Printed</label>
                       </li>
                     </ul>
                   </div>

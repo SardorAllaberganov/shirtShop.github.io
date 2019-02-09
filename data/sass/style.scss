@@ -800,6 +800,12 @@ a{
   .hideBtn{
     display: none;
   }
+  .pattern-img{
+    width: 20px;
+    margin-right: 10px;
+    height: 20px;
+    border-radius: 50%;
+  }
   .cool-link{
     transition: all .35s;
     border-bottom: 1px solid transparent;
@@ -810,6 +816,7 @@ a{
   .checkbox-color-filter {
     display: none;
   }
+  
   .color-filter {
     display: block;
     width: 25px;
@@ -841,14 +848,6 @@ a{
     outline: 0;
   }
   
-  a:link,
-  a:visited {
-    color: #222;
-  }
-  
-  a:hover{
-    color: orange;
-  }
   .list-group-item{
     background: none;
     border: none;

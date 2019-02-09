@@ -4,6 +4,8 @@ var data = [{
   price: 100000,
   type: 'premium',
   color: 'dark-blue',
+  category: 'business-casual-shirts',
+  pattern: 'dotted',
   //Image: "/data/images/3.jpg"
   Image: "/shirtShop.github.io/data/images/3.jpg"
 },{
@@ -12,6 +14,8 @@ var data = [{
   price: 145000,
   type: 'luxury',
   color: 'light-blue',
+  category: 'business-shirts',
+  pattern: 'solid',
   //Image: '/data/images/4.jpg'
   Image: '/shirtShop.github.io/data/images/4.jpg'
 },{
@@ -20,6 +24,8 @@ var data = [{
   price: 132000,
   type: 'luxury',
   color: 'white',
+  category: 'casual-shirts',
+  pattern: 'printed',
   //Image: '/data/images/5.jpg'
   Image: '/shirtShop.github.io/data/images/5.jpg'
 },{
@@ -28,6 +34,8 @@ var data = [{
   price: 99900,
   color: 'white',
   type: 'essentials',
+  category: 'formal-shirts',
+  pattern: 'solid',
   //Image: '/data/images/6.jpg'
   Image: '/shirtShop.github.io/data/images/6.jpg',
 }];
@@ -49,6 +57,12 @@ app.controller("productController", ["$scope", function ($products) {
   };
   $products.colorFilter = function(color) {
     $products.theFilter.color = color;
+  };
+  $products.categoryFilter = function(category) {
+    $products.theFilter.category = category;
+  };
+  $products.patternFilter = function(pattern) {
+    $products.theFilter.pattern = pattern;
   };
 
   // reset the filter
