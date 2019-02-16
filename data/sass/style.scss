@@ -31,6 +31,15 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+.weightFilter{
+  overflow: hidden;
+  border: none;
+  outline: none;
+  option{
+    padding: 5px;
+    text-decoration: underline;
+  }
+}
 
 .navbar{
   border-radius: 0;
@@ -290,8 +299,34 @@ a{
 }
 
 //section three 
+.close1{
+  background: url(../images/icons/close.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  transition: all .2s;
+  opacity: .5;
+  &:hover{
+    opacity: .8;
+  }
+}
 .fabrics{
   background: #f2f2f2;
+  &-modal{
+    h2{
+      font-family: Montserrat-medium;  
+    }
+    font-family: Montserrat-regular;
+    img{
+      width: 100%;
+    }
+  }
   img{
     width: 100%;
     transition: all 0.3s;
@@ -333,6 +368,7 @@ a{
       z-index: 4;
     }
     &Caption{
+      cursor: default;
       left: 50%;
       top: 50%;
       color: #fff;
@@ -357,6 +393,16 @@ a{
         letter-spacing: 2px;
       }
     }
+  }
+}
+.fabrics-page{
+  &-content{
+    h1,p{
+      font-family: 'montserrat-regular'
+    }
+  }
+  input{
+    border-radius: 0;
   }
 }
 
@@ -807,6 +853,7 @@ a{
     border-radius: 50%;
   }
   .cool-link{
+    text-transform: capitalize;
     transition: all .35s;
     border-bottom: 1px solid transparent;
     width: 100%;
@@ -1156,16 +1203,7 @@ a{
   .xl-text1{
     font-size: 40px;
   }
-  .fabricsCatalog{
-    &Caption{
-      h1{
-        font-size: 50px;
-      }
-      h4{
-        font-size: 30px;
-      }
-    }
-  }
+
   .fabricsCatalog{
     &:last-child{margin: 20px 10px;}
     p{
@@ -1174,6 +1212,7 @@ a{
     }
     &Caption{
       h4{
+
         font-size: 1em;
       }
       h1{

@@ -1,0 +1,24 @@
+<div class="modal fade" id="myModal" ng-app="app" ng-controller="BookController">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            Id: {{params.bookId}}<br />
+            brand: {{ params.brand }} <br>
+            price: {{ params.price }}
+        </div>
+
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+          <a href="/" data-dismiss="modal">Close</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+

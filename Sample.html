@@ -1,0 +1,185 @@
+<!-- <!doctype html>
+<html ng-app="myApp">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="//code.angularjs.org/1.7.7/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.7.7/angular-route.js"></script>
+    <script>
+    var data = [{
+      id: 1,
+      brand: 'product1',
+      price: 100000,
+    },{
+      id: 2,
+      brand: 'product2',
+      price: 145000,
+    },{
+      id: 3,
+      brand: 'product3',
+      price: 132000,
+    },{
+      id: 4,
+      brand: 'product4',
+      price: 99900,
+    }];
+
+    </script>
+  </head>
+  <body ng-controller="AngularController">
+    <a href="#/">Home</a>
+    <a href="#/about">About</a>
+    <a class="row-no-padding" href="#/individual" data-toggle="modal" data-target="#myModal">Read more...</a>
+    <div ng-view></div>
+    <div ng-repeat="item in test">
+      {{ item.id }}, {{ item.brand }}
+      <a href="#/individual/{{ item.id }}" data-toggle="modal" data-target="#myModal">test</a>
+    </div>
+
+    <script>
+
+      var myApp = angular.module('myApp', ['ngRoute']);
+
+      myApp.controller('AngularController',function($scope,$routeParams) {
+        $scope.test = data;
+        $scope.params = $routeParams;
+      });
+
+      myApp.config(function($routeProvider) {
+        $routeProvider
+          .when('/individual/:id', {
+            templateUrl : 'individual.html',
+            // template: function(routeParams) {
+            //   if (routeParams.keywords) {
+            //       return 'Keywords: ' + routeParams.keywords;
+            //   }
+            // },
+            controller: 'AngularController'
+          })
+          .otherwise({
+            redirectTo: '/individual' 
+          });
+      });
+
+    //   var app = angular.module('myApp', ['ngRoute']);
+    //   app.config(function($routeProvider) {
+    //     $routeProvider
+
+    //     .when('/individual', {
+    //       templateUrl : 'individual.html',
+    //       controller  : 'HomeController'
+    //     })
+    //     .otherwise({redirectTo: '/'});
+    //   });
+    // app.controller('HomeController', function($scope) {
+    //   $scope.message = 'Hello from HomeController';
+    // });
+
+    // app.controller('BlogController', function($scope) {
+    //   $scope.message = 'Hello from BlogController';
+    // });
+
+    // app.controller('AboutController', function($scope) {
+    //   $scope.message = 'Hello from AboutController';
+    // });
+    // </script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-$route-service-production</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  
+  <script src="//code.angularjs.org/1.7.7/angular.min.js"></script>
+  <script src="//code.angularjs.org/1.7.7/angular-route.js"></script>
+  <script>
+    var data = [{
+      id: 1,
+      brand: 'product1',
+      price: 100000,
+    },{
+      id: 2,
+      brand: 'product2',
+      price: 145000,
+    },{
+      id: 3,
+      brand: 'product3',
+      price: 132000,
+    },{
+      id: 4,
+      brand: 'product4',
+      price: 99900,
+    }];
+
+    </script>
+  <script>
+    (function(angular) {
+      'use strict';
+      angular.module('ngRouteExample', ['ngRoute'])
+
+      .controller('MainController', function($scope, $route, $routeParams, $location) {
+        $scope.items = data;
+          $scope.$route = $route;
+          $scope.$location = $location;
+          $scope.$routeParams = $routeParams;
+      })
+
+      .controller('BookController', function($scope, $routeParams) {
+          $scope.name = 'BookController';
+          $scope.params = $routeParams;
+      })
+
+      .controller('ChapterController', function($scope, $routeParams) {
+          $scope.name = 'ChapterController';
+          $scope.params = $routeParams;
+      })
+
+      .config(function($routeProvider, $locationProvider) {
+        $routeProvider
+        .when('/individual/:bookId,:brand,:price', {
+          templateUrl: 'individual.html',
+          controller: 'BookController',
+        })
+        .when('/', {
+          templateUrl: 'Sample.html',
+          controller: 'BookController',
+        });
+        $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix('');
+      });
+      })(window.angular);
+
+      /*
+      Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license
+      */
+  </script>
+  
+  <ng-include src="'individual.html'"></ng-include>
+
+  <script type="text/javascript">
+    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+  </script>
+</head>
+<body ng-app="ngRouteExample">
+  <div ng-controller="MainController">
+  Choose:
+  <div ng-repeat="item in items">
+    <a ng-href="individual/{{ item.id}},{{item.brand}},{{item.price}}" data-toggle="modal" data-target="#myModal">read more...</a> |
+  </div>
+
+  <div ng-view></div>
+
+</div>
+</body>
+</html>

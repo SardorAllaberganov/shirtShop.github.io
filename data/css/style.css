@@ -29,6 +29,16 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.weightFilter {
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+.weightFilter option {
+  padding: 5px;
+  text-decoration: underline;
+}
+
 .navbar {
   border-radius: 0;
   transition: all 0.3s ease-out;
@@ -274,8 +284,35 @@ a {
   background: #66a8a6;
 }
 
+.close1 {
+  background: url(../images/icons/close.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  transition: all 0.2s;
+  opacity: 0.5;
+}
+.close1:hover {
+  opacity: 0.8;
+}
+
 .fabrics {
   background: #f2f2f2;
+}
+.fabrics-modal {
+  font-family: Montserrat-regular;
+}
+.fabrics-modal h2 {
+  font-family: Montserrat-medium;
+}
+.fabrics-modal img {
+  width: 100%;
 }
 .fabrics img {
   width: 100%;
@@ -319,6 +356,7 @@ a {
   z-index: 4;
 }
 .fabrics .fabricsCatalogCaption {
+  cursor: default;
   left: 50%;
   top: 50%;
   color: #fff;
@@ -342,6 +380,13 @@ a {
   color: white;
   line-height: 1.2;
   letter-spacing: 2px;
+}
+
+.fabrics-page-content h1, .fabrics-page-content p {
+  font-family: "montserrat-regular";
+}
+.fabrics-page input {
+  border-radius: 0;
 }
 
 .mainInfoSection {
@@ -762,6 +807,7 @@ a {
   border-radius: 50%;
 }
 .filterBar .cool-link {
+  text-transform: capitalize;
   transition: all 0.35s;
   border-bottom: 1px solid transparent;
   width: 100%;
@@ -1088,13 +1134,6 @@ a {
 
   .xl-text1 {
     font-size: 40px;
-  }
-
-  .fabricsCatalogCaption h1 {
-    font-size: 50px;
-  }
-  .fabricsCatalogCaption h4 {
-    font-size: 30px;
   }
 
   .fabricsCatalog:last-child {

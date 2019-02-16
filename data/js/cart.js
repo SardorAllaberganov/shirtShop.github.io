@@ -40,13 +40,123 @@ var data = [{
   Image: '/shirtShop.github.io/data/images/6.jpg',
 }];
 
-angular.module('shirtShop', ['ngAnimate']);
-var app = angular.module("shirtShop", []);
+var weight = ['75-99', '100-124','125-149','80-120', '105-128','130-159'];
+
+var fabrics = [{
+  id: 1,
+  brand: 'product1',
+  price: 494000,
+  color: 'brown',
+  type: 'luxury',
+  fabricType: 'shirt-fabric',
+  pattern: 'patterned',
+  weight: '100-124',
+  Image: '/shirtShop.github.io/data/images/fabrics/1.jpg',
+  //Image: '/data/images/fabrics/1.jpg',
+  //ImageModal: '/data/images/fabrics/1-1.jpg'
+  ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+},
+{
+  id: 2,
+  brand: 'product2',
+  price: 494000,
+  color: 'white',
+  type: 'essentials',
+  fabricType: 'shirt-fabric',
+  pattern: 'solid',
+  weight: '100-124',
+  Image: '/shirtShop.github.io/data/images/fabrics/2.jpg',
+  //Image: '/data/images/fabrics/1.jpg',
+  //ImageModal: '/data/images/fabrics/1-1.jpg'
+  ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+},
+{
+  id: 3,
+  brand: 'product3',
+  price: 494000,
+  color: 'red',
+  type: 'luxury',
+  fabricType: 'shirt-fabric',
+  pattern: 'checked',
+  weight: '125-149',
+  Image: '/shirtShop.github.io/data/images/fabrics/3.jpg',
+  //Image: '/data/images/fabrics/1.jpg',
+  //ImageModal: '/data/images/fabrics/1-1.jpg'
+  ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+},
+{
+  id: 4,
+  brand: 'product4',
+  price: 663000,
+  color: 'black',
+  type: 'essentials',
+  fabricType: 'shirt-fabric',
+  pattern: 'premium',
+  weight: '75-99',
+  Image: '/shirtShop.github.io/data/images/fabrics/4.jpg',
+  //Image: '/data/images/fabrics/1.jpg',
+  //ImageModal: '/data/images/fabrics/1-1.jpg'
+  ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+},
+{
+  id: 5,
+  brand: 'product5',
+  price: 663000,
+  color: 'brown',
+  type: 'essentials',
+  fabricType: 'polo-shirt-fabrics',
+  pattern: 'solid',
+  weight: '125-149',
+  Image: '/shirtShop.github.io/data/images/fabrics/5.png',
+  //Image: '/data/images/fabrics/1.jpg',
+  //ImageModal: '/data/images/fabrics/1-1.jpg'
+  ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+},
+{
+  id: 6,
+  brand: 'product6',
+  price: 222123,
+  color: 'brown',
+  type: 'essentials',
+  fabricType: 'shirt-fabric',
+  pattern: 'patterned',
+  weight: '75-99',
+  Image: '/shirtShop.github.io/data/images/fabrics/1.jpg',
+  //Image: '/data/images/fabrics/1.jpg',
+  //ImageModal: '/data/images/fabrics/1-1.jpg'
+  ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+}];
+
+var app = angular.module('shirtShop',[]);
+//var app = angular.module("shirtShop", []);
+
+// app.config(function($routeProvider, $locationProvider) {
+//   $routeProvider
+//   .when('/individual/:bookId,:brand,:price', {
+//     templateUrl: 'individual.html',
+//     controller: 'BookController',
+//   })
+//   .when('/index', {
+//     templateUrl: 'index.html',
+//     controller: 'BookController',
+//   });
+//   $locationProvider.html5Mode(true);
+// });
+
+// app.controller('BookController', function($scope, $routeParams,$routeParams,$location) {
+//   $scope.name = 'BookController';
+//   $scope.params = $routeParams;
+//   $scope.$location = $location;
+// })
 
 app.controller("productController", ["$scope", function ($products) {
   $products.product = data;
+  $products.fabrics = fabrics;
+  $products.weight = weight;
+  $products.optionSize = weight.length;
   $products.theFilter = {};
-  
+
+  //product page filters
   $products.typeFilter = function(type) {
     if ($products.theFilter.type === type) {
       $products.theFilter = {};
@@ -63,6 +173,17 @@ app.controller("productController", ["$scope", function ($products) {
   };
   $products.patternFilter = function(pattern) {
     $products.theFilter.pattern = pattern;
+  };
+
+
+  $products.weightFilter = function(weight){
+    $products.theFilter.weight = weight;
+    console.log(weight);
+  }
+
+  //fabrics page filters
+  $products.fabricType = function(fabricType) {
+    $products.theFilter.fabricType = fabricType;
   };
 
   // reset the filter

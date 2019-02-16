@@ -12,21 +12,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-<!-- 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular-route.min.js"></script> -->
-
-  <script src="//code.angularjs.org/1.7.7/angular.min.js"></script>
-  <script src="//code.angularjs.org/1.7.7/angular-route.js"></script>
-
   <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
-  
   <link rel="stylesheet" href="data/css/animate.css">  
   <link rel="stylesheet" href="data/css/style.css">
   <script src="data/js/index.js"></script>
-  <script type="text/javascript">
-    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
-  </script>
   <script src="data/js/cart.js"></script>
   
 </head>
@@ -121,34 +111,46 @@
         </ul>
       </div>
     </nav>
-    
 
-    <section class="products">
+    <section class="fabrics-page">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3 filterBar">
             <button type="button" class="btn hideBtn">X</button>
             <ul class="list-group list-group-flush">
+              
               <li class="list-group-item px-0">
                 <a class="btn collapsed" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="true" aria-controls="collapseExample1">
-                  Нарҳлар оралиғи<span class="mr-3"></span>
+                  Матонинг тури<span class="mr-3"></span>
                 </a>
                 <div class="collapse show" id="collapseExample1">
                   <div class="card card-body mt-2">
-                    <!-- <select  class="form-control" name="productType" id="productType" ng-model="filter.type" ng-options="orderList for orderList in productType">
-                      <option value="" disabled selected hidden>Выбрать</option>
-                    </select> -->
+                    <button class="btn text-left cool-link" ng-click="fabricType('shirt-fabric')">Кўйлак матолари</button>
+                    <button class="btn text-left cool-link" ng-click="fabricType('polo-shirt-fabric')">Поло кўйлак мато</button>
+                    <button class="btn text-left cool-link" ng-click="fabricType('suit-fabric')">Тўқимачилик матолари</button>
+                    <button class="btn text-left cool-link" ng-click="fabricType('lining-fabric')">Чизиқли мато</button>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample1">
+                  Нарҳлар оралиғи<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample2">
+                  <div class="card card-body mt-2">
                     <button class="btn text-left cool-link" ng-click="typeFilter('luxury')">Luxury - From $99</button>
                     <button class="btn text-left cool-link" ng-click="typeFilter('premium')">Premium - From $79</button>
                     <button class="btn text-left cool-link" ng-click="typeFilter('essentials')">Essentials - From $55</button>
                   </div>
                 </div>
               </li>
+
               <li class="list-group-item px-0">
-                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="true" aria-controls="collapseExample2">
                 Категориялар<span class="mr-3"></span>
                 </a>
-                <div class="collapse show" id="collapseExample2">
+                <div class="collapse show" id="collapseExample3">
                   <div class="card card-body mt-2">
                     <ul class="nav flex-column">
                       <li class="m-r-10 mx-1">
@@ -201,10 +203,10 @@
                 </div>
               </li>
               <li class="list-group-item px-0">
-                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="true" aria-controls="collapseExample3">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="true" aria-controls="collapseExample3">
                 Ранглар<span class="mr-3"></span>
                 </a>
-                <div class="collapse show" id="collapseExample3">
+                <div class="collapse show" id="collapseExample4">
                   <div class="card card-body mt-2">
                     <ul class="nav d-flex justify-content-center">
                       <li class="m-r-10 mx-1">
@@ -241,10 +243,10 @@
                 </div>
               </li>
               <li class="list-group-item px-0">
-                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="true" aria-controls="collapseExample2">
                 Шаблон<span class="mr-3"></span>
                 </a>
-                <div class="collapse show" id="collapseExample2">
+                <div class="collapse show" id="collapseExample5">
                   <div class="card card-body mt-2">
                     <ul class="nav flex-column">
                       <li class="m-r-10 mx-1 cool-link">
@@ -280,27 +282,148 @@
                   </div>
                 </div>
               </li>
+
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="true" aria-controls="collapseExample2">
+                  Weaving type<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample6">
+                  <div class="card card-body mt-2">
+                    <ul class="nav flex-column">
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('plain')" id="pattern-filter1" type="checkbox" name="color-filter1">
+                        <label class="pattern-filter" for="pattern-filter1">Plain</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('poplin')" id="pattern-filter2" type="checkbox" name="color-filter2">
+                        <label class="pattern-filter" for="pattern-filter2">poplin</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('twill')" id="pattern-filter3" type="checkbox" name="color-filter3">
+                        <label class="pattern-filter" for="pattern-filter3">twill</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('slub')" id="pattern-filter4" type="checkbox" name="color-filter4">
+                        <label class="pattern-filter" for="pattern-filter4">slub</label>
+                      </li>
+      
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('satin')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">satin</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('dobby-weave')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">Dobby weave</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('oxford')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">oxford</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('chambray')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">chambray</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('herringbone')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">herringbone</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('pinpoint-oxford')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">pinpoint oxford</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('french-oxford')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">french-oxford</label>
+                      </li>
+
+                      <li class="m-r-10 mx-1 cool-link">
+                        <input class="checkbox-color-filter" ng-click="weavingFilter('hopsack')" id="pattern-filter5" type="checkbox" name="color-filter5">
+                        <label class="pattern-filter" for="pattern-filter5">hopsack</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-group-item px-0">
+                <a class="btn collapsed" data-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="true" aria-controls="collapseExample2">
+                Weight<span class="mr-3"></span>
+                </a>
+                <div class="collapse show" id="collapseExample7">
+                  <div class="card card-body mt-2">
+                    <select class="weightFilter" size="{{ optionSize }}" name="weightFilter" ng-model="theFilter.weight" ng-options="weight + ' g/m2' for weight in weight | orderBy">
+                      <option value="" disabled selected hidden></option>
+                    </select>
+                  </div>
+                </div>
+              </li>
             </ul>
-            <input type="text" class="form-control" ng-model="searchProduct" placeholder="Маҳсулот қидириш...">
             <div class="px-0 my-3 d-flex justify-content-center">
               <input type="reset" ng-click="resetFilter()" class="btn btn-primary" value="Сброс">
             </div>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 fabrics-page-content">
             <div class="d-flex justify-content-center my-4">
               <button type="button" class="btn btn-outline-primary showFilterBtn">Show Filters</button>
             </div>
-            <div class="row ">
-              <div class="col-md-4 col-sm-4 mb-4" ng-repeat="product in product | filter:theFilter | filter: searchProduct">
+            <div class="row row-no-padding">
+              <h1>Ko'ylak matolari</h1>
+              <p>
+                Bu erda barcha matolarni topishingiz mumkin. O'zingizning namunali kitobingizga qo'shing, 
+                keyin siz matolarni ko'rish va his qilish uchun uyga buyurtma berasiz. 
+                Filteringiz siz uchun eng mos bo'lgan ma'lum narx oralig'ini, ranglarini, 
+                naqshlarini va ortiqcha oro bermaylarini qidirish uchun foydalaning.
+              </p>
+              <form action="" style="width:100%;">
+                <div class="form-group">
+                  <input type="text" class="form-control" ng-model="searchProduct" placeholder="Маҳсулот қидириш...">
+                </div>
+              </form>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-3 mb-4" ng-repeat="fabric in fabrics | filter:theFilter | filter: searchProduct">
                 <div class="card" style="width:100%">
                   <div class="cardImageBlock">
-                    <img class="card-img-top" ng-src="{{product.Image}}" alt="Card image">
+                    <img class="card-img-top" ng-src="{{fabric.Image}}" alt="Card image">
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title"> {{ product.brand }} </h5>
-                    <p class="card-text"> {{ product.price + ' сўм' }} </p>
-                    <!-- <a href="/individual/{{ product.id }},{{ product.brand }},{{ product.price }}" data-toggle="modal" data-target="#myModal">read more...</a> -->
+                    <h5 class="card-title"> {{ fabric.brand }} </h5>
+                    <p class="card-text"> {{ fabric.price + ' сўм' }} </p>
                     <a href="#" data-toggle="modal" data-target="#myModal">Read more...</a>
+
+                    <div class="modal fade fabrics-modal" id="myModal">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                  
+                          <div class="modal-header">
+                            <h2 class="modal-title">{{ fabric.brand }}</h2>
+                            <button type="button" class="close1" data-dismiss="modal"></button>
+                          </div>
+                  
+                          <div class="modal-body">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <img ng-src="{{ fabric.ImageModal }}" alt="">
+                              </div>
+                              <div class="col-md-6">
+                                <h3>Dobby weave, 100% Polyester</h3>
+                                <h4>{{ fabric.price }} сўм</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <!-- <div class="row row-no-padding">
                       <div class="col-md-9 col-sm-8 col-xs-8">
                       </div>
@@ -317,7 +440,6 @@
       </div>
     </section>
 
-    
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
