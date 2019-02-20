@@ -419,6 +419,25 @@ a {
   padding: 0.5em;
 }
 
+.similar-products {
+  margin-top: 70px;
+}
+.similar-products h2 {
+  font-family: montserrat-regular;
+  position: relative;
+  padding-bottom: 20px;
+}
+.similar-products h2::after {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+}
+
 .mainInfoSection {
   padding: 80px 0;
 }

@@ -6,6 +6,7 @@ var data = [{
   color: 'dark-blue',
   category: 'business-casual-shirts',
   pattern: 'dotted',
+  country: 'Italy',
   //Image: "/data/images/3.jpg"
   Image: "/shirtShop.github.io/data/images/3.jpg"
 },{
@@ -16,6 +17,7 @@ var data = [{
   color: 'light-blue',
   category: 'business-shirts',
   pattern: 'solid',
+  country: 'Uzbekistan',
   //Image: '/data/images/4.jpg'
   Image: '/shirtShop.github.io/data/images/4.jpg'
 },{
@@ -26,6 +28,7 @@ var data = [{
   color: 'white',
   category: 'casual-shirts',
   pattern: 'printed',
+  country: 'France',
   //Image: '/data/images/5.jpg'
   Image: '/shirtShop.github.io/data/images/5.jpg'
 },{
@@ -36,6 +39,7 @@ var data = [{
   type: 'essentials',
   category: 'formal-shirts',
   pattern: 'solid',
+  country: 'Turkey',
   //Image: '/data/images/6.jpg'
   Image: '/shirtShop.github.io/data/images/6.jpg',
 }];

@@ -437,6 +437,24 @@ a{
     }
   }
 }
+.similar-products{
+  margin-top: 70px;
+  h2{
+    font-family: montserrat-regular;
+    position: relative;
+    padding-bottom: 20px;
+    &::after{
+      position: absolute;
+      content: "";
+      width: 60px;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+    }
+  }
+}
 
 //mainInfoSection section four
 .mainInfoSection{
