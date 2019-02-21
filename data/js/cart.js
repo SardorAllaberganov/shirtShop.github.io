@@ -160,6 +160,8 @@ app.controller("productController", ["$scope", function ($products) {
   $products.optionSize = weight.length;
   $products.theFilter = {};
 
+  $products.accountType = 'personal';
+
   //product page filters
   $products.typeFilter = function(type) {
     if ($products.theFilter.type === type) {

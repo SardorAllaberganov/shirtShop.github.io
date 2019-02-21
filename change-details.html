@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shirtShop">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Shirt Shop</title>
+  <link rel="shortcut icon" href="data/images/logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="data/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
+  <link rel="stylesheet" href="data/css/animate.css">  
+  <link rel="stylesheet" href="data/css/style.css">
+  <script src="data/js/index.js"></script>
+  <script src="data/js/cart.js"></script>
+  
+</head>
+<body ng-controller="cart as cart">
+  <div ng-controller="productController">
+    <!-- header -->
+    <ul class="nav topbar">
+      <li class="nav-item social-items">
+        <div class="topbar-social">
+          <a href="#" class="topbar-social-item fa fa-facebook"></a>
+          <a href="#" class="topbar-social-item fa fa-instagram"></a>
+          <a href="#" class="topbar-social-item fa fa fa-telegram"></a>
+          <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto topbar-child1">
+        <span>O'zimiz yetkazib beramiz!</span>
+      </li>
+      <li class="nav-item topbar-child1">
+        <span>name@example.com</span>
+      </li>
+      <li class="nav-item currency">
+        <form>
+          <select>
+            <option value="usd">USD</option>
+            <option value="sum">SUM</option>
+          </select>
+        </form>
+      </li>
+    </ul>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" data-toggle="affix">
+      <button class="navbar-toggler toggle-btn" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          ☰
+      </button>
+      <a class="navbar-brand" href="index.html"> >Brand< </a>
+      <ul class="nav topIcons">
+        <li class="dropdown">
+          <a href="login.html"><img src="data/images/icons/icon-header-01.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON" alt="user"></a>
+          <div class="dropdown-menu">
+            <h4 class="text-center my-4">Hello, User</h4>
+            <p class="my-4 text-center">
+              <button class="btn btn-primary">My Page</button>
+            </p>
+            <p class="my-4 text-center">
+              <button class="btn">Log out</button>
+            </p>
+          </div>
+        </li> 
+        <li class="linedivide1"> | </li>
+        <li class="dropdown">
+          <img src="data/images/icons/icon-header-02.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON">
+          <span class="header-icons-noti"><p> {{ cart.length }} </p></span>
+          <div class="dropdown-menu">
+            <h5 class="dropdown-header">Savatcha</h5>
+            <ul class="cartList">
+              <li class="cartListItem dropdow-item" ng-repeat="item in cart track by $index">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="productBrand"> {{ item.brand }} </p>
+                      <input type="text" readonly ng-model="item.count" class="productCount" />
+                      <span> {{ 'ta = ' + getCost(item) }} </span>
+                    </div>
+                    <div class="col-sm-3">
+                      <button class="btn btn-danger btn-sm" ng-click="removeItem(item);">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <h5 class="dropdown-header">Dropdown header</h5>
+            <p class="totalSum">Total: {{ getTotal() + ' сўм'}}</p>
+            <hr>
+            <p class="text-center basket-btn">
+              <a href="basket.html"> Savatchani tekshirish </a>
+            </p>
+          </div>
+        </li> 
+      </ul>
+      
+      <div class="collapse navbar-collapse" id="collapsingNavbar">
+        <ul class="nav navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Bosh sahifa</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="products.html">Tovarlar</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="about.html">Biz haqimizda</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="contactus.html">Bog'lanish</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container change-details">
+      <div class="row mb-4">
+        <h1>Change your details</h1>
+      </div>
+        <form action="">
+          <div class="row">
+            <div class="col-md-6">	
+              <label for="customer_type">Account type</label>
+              <select ng-model="accountType" class="form-control">
+                <option value="personal">Personal</option>
+                <option value="business">Business</option>
+              </select>
+            </div>
+            <div class="col-md-6">	
+              <label for="gender">Gender</label>
+              <select name="gender" class="form-control">
+                <option selected>Male</option>
+                <option>Female</option>	
+              </select>
+            </div>
+          </div>
+          <div class="row my-5" ng-show="accountType == 'business'">
+            <div class="col-md-12">
+              <label for="company-name">Company name</label>
+              <input type="text" name="company-name" class="form-control">
+            </div>
+          </div>
+          <div class="row my-5">
+            <div class="col-md-6">	
+              <label for="first-name">First Name</label>
+              <input name="first-name" type="text" class="form-control">
+            </div>
+            <div class="col-md-6">	
+                <label for="last-name">Last Name</label>
+                <input name="last-name" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-md-12">
+              <label for="email">E-mail address</label>
+              <input type="text" name="email" class="form-control">
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <label for="confirm-email">Confirm E-mail address</label>
+              <input type="text" name="confirm-email" class="form-control">
+            </div>
+          </div>
+
+          <div class="row my-2">
+            <div class="col-md-12">
+              <label for="address">Delivery address</label>
+              <input type="text" name="address" class="form-control">
+            </div>
+          </div>
+          <div class="row my-2">
+            <div class="col-md-12">
+              <label for="address">Delivery address 2</label>
+              <input type="text" name="address" class="form-control">
+            </div>
+          </div>
+
+          <div class="row my-2">
+            <div class="col-md-6">	
+              <label for="zipCode">Zip code</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6">	
+              <label for="city">City</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="row my-2">
+            <div class="col-md-12">
+              <label for="state">State</label>
+              <select name="" id="" class="form-control">
+                <option value="">Tashkent</option>
+                <option value="">Samarkand</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row my-2">
+            <div class="col-md-6">	
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6">	
+              <label for="mobilePhone">Mobile Phone</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="bday">Birthday</label>
+            </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-4">
+                    <select name="" id="" class="form-control">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <select name="" id="" class="form-control">
+                  <option value="">Jan</option>
+                  <option value="">Feb</option>
+                  <option value="">Mar</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <select name="" id="" class="form-control">
+                  <option value="">1970</option>
+                  <option value="">1971</option>
+                  <option value="">1972</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="save my-5">Save Changes</button>
+        <button type="button" class="back">Back</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <h4>Биз билан алока қилиш</h4>
+        </div>
+        <div class="row upperFooter">
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-map-o" aria-hidden="true"></i> г. Ташкент, ул. Уста Ширин 100</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +998(99) 999-99-99</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> shirtstore@company.com</p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <p><i class="fa fa-globe" aria-hidden="true"></i> shirtstore.com</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row bottomFooter">
+          <div class="col-md-3">
+            <div class="topbar-social">
+              <a href="#" class="topbar-social-item fa fa-facebook"></a>
+              <a href="#" class="topbar-social-item fa fa-instagram"></a>
+              <a href="#" class="topbar-social-item fa fa fa-telegram"></a>
+              <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <p>Copyright © 2003-2019 shirtShop. All rights reserved.
+              All works are property of their respective owners and may not be used elsewhere without written permission.</p>
+          </div>
+          <div class="col-md-3">
+            <h1><i class="fa fa-cc-visa" aria-hidden="true"></i> <i class="fa fa-cc-mastercard" aria-hidden="true"></i> <i class="fa fa-cc-paypal" aria-hidden="true"></i></h1>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
