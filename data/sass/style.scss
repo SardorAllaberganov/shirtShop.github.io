@@ -302,6 +302,9 @@ a{
   padding: 30px;
   color: #333333;
   width: 100%;
+  .form-control{
+    border-radius: 0;
+  }
   p{
     width: 100%;
   }
