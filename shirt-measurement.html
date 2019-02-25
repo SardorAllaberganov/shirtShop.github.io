@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shirtShop">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Shirt Shop</title>
+  <link rel="shortcut icon" href="data/images/logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="data/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+  <!-- <link rel="stylesheet" href="data/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="data/css/owl.theme.default.min.css"> -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css'>
+  <link rel='stylesheet' href='http://kenwheeler.github.io/slick/slick/slick-theme.css'>
+
+  <link rel="stylesheet" href="data/css/animate.css">  
+  <link rel="stylesheet" href="data/css/style.css">
+  <script src="data/js/index.js"></script>
+  <script src="data/js/cart.js"></script>
+
+  
+  <style>
+      .slider-for{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #3498db;
+      }
+    
+      .slider-nav{
+        position: fixed;
+        bottom: 0;
+        height: 130px;
+        padding: 0 30px;
+        left: 50%;
+        background: rgba(0,0,0,.5);
+        transform: translateX(-50%);
+        width: 100%;
+        
+      }
+      .slick-slide { 
+        background: #fff;
+      }
+    
+      .slider-nav div{
+        padding: 10px;
+        margin: 0 5px;
+        position: relative;
+        height: 100%;
+        cursor: pointer;
+      }
+      .slider-nav img{
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99;
+        max-width: 80px;
+      }
+      .slider-nav span{
+        position: absolute;
+        left: 50%;
+        text-align: center;
+        width: 100%;
+        bottom: 5px;
+        transform: translateX(-50%);
+        clear: both;
+        z-index: 99;
+      }
+      .slider-nav h3{
+        padding: 20px;
+      }
+      .slick-center.slick-active{
+        height: 110%;
+        margin-top: -5px;
+        transition: all 0.3s;
+      }
+      .slick-center.slick-active::before {
+        position: absolute;
+        transition: all 0.3s;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        content: "";
+        height: 4px;
+        background: red;
+        width: 100%;
+      }
+      .slick-arrow{
+        z-index: 99999;
+        position: absolute;
+        height: 100%;
+        width: 50px;
+        background: rgba(0,0,0,.7)!important;
+      }
+      .slick-prev {
+        left: 0;
+      }
+      .slick-next{
+        right: 0;
+      }
+      .slider-for img{
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+      }
+      .logo{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+      }
+      .logo div{
+        max-width: 200px;
+      }
+      .logo img{
+        width: 100%;
+      }
+      .logo h2{
+        text-align: center
+      }
+      .logo p{
+        text-align: center;
+        display: block;
+        font-style: italic;
+        font-size: .8em;
+        font-family: montserrat-regular;
+      }
+      .myModal{
+        position: absolute;
+        bottom: 140px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 540px;
+        background: rgba(255,255,255,.7);
+        padding: 20px;
+      }
+      .modal-title{
+        text-align: center;
+        position: relative;
+      }
+      .modal-title h4{
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .modal-title button{
+        right: 10px;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: #eeeeee;
+        border-radius: 50%;
+      }
+      .modal-title button img{
+        width: 100%;
+        height: 100%;
+      }
+      .modal-body{
+        margin: 30px 0 0 0;
+        text-align: center;
+      }
+      .modal-body input{
+        text-align: center;
+      }
+      .button{
+        position: absolute;
+        top: 50px;
+        left: 400px;
+      }
+      .button-group{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        z-index: 99999;
+        right: 20px;
+      }
+      .button-group button{
+        display: block;
+        padding: 8px 10px;
+        margin: 20px;
+        max-width: 100px;
+        width: 100%;
+        cursor: pointer;
+        font-family: montserrat-regular;
+        letter-spacing: 1px;
+      }
+      .button-group button:first-child{
+        background: #265e89;
+        color: #fff;
+        border: 1px solid #265e89;
+      }
+      .button-group button:last-child{
+        background: #fff;
+        border: 1px solid #fff;
+      }
+      @media only screen and (max-width: 768px) and (orientation: landscape){
+        .slider-nav{
+          height: 100px;
+        }
+        .slider-nav img{
+          width: 60px;
+          height: 60px;
+          margin: 0;
+        }
+        .myModal{
+          max-width: 400px;
+          max-height: 200px;
+          bottom: 120px;
+        }
+        .myModal p{
+          font-size: 12px;
+        }
+        .button-group{
+          right: 25px;
+        }
+        .button-group button{
+          padding: 5px 10px;
+          font-size: 12px;
+        }
+      }
+      @media only screen and (max-width: 576px) and (orientation: portrait){
+        .slider-nav{
+          height: 100px;
+        }
+        .slider-nav img{
+          width: 60px;
+          height: 60px;
+          margin: 0;
+        }
+        .myModal{
+          max-width: 400px;
+          max-height: 200px;
+          bottom: 120px;
+        }
+        .myModal p{
+          font-size: 12px;
+        }
+        .button-group{
+          top: 40%;
+        }
+        
+        .button-group{
+          right: 25px;
+        }
+        .button-group button{
+          padding: 5px 10px;
+          font-size: 12px;
+        }
+      }
+    </style>
+
+
+</head>
+<body ng-controller="cart as cart">
+  <div ng-controller="measurementController" class="body-measurement">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="logo">
+            <div><img src="data/images/logo.png" alt="logo"></div>
+            <p>One size only - Yours</p>
+          </div>
+          <div class="row button-group">
+            <button>Save</button>
+            <button><i class="fa fa-trash-o" aria-hidden="true"></i> Reset</button>
+          </div>
+          
+          <div class="col-md-12">
+            <div class="slider slider-for">
+              <div> 
+                <img src="data/images/mens-shirt-measurement/neck.jpg" alt="neck"> 
+                <div id="demo0" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Collar</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo0"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The collar measurement is taken from the outer edge of the button hole to the center of the button.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/chest.jpg" alt="chest"> 
+                <div id="demo1" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Chest</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo1"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The chest measurement is taken across the shirt at the bottom of the sleeve seams. Note that this is NOT a circumference measurement.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/waist.jpg" alt="waist">
+                <div id="demo2" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Waist</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo2"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The waist measurement is taken across the shirt at the narrowest part of the waist. Note that this is NOT a circumference measurement.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/hip.jpg" alt="bottom"> 
+                <div id="demo3" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Bottom</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo3"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The bottom width measurement is taken across the shirt at the end of the side seams. Note that this is NOT a circumference measurement.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/shirtl.jpg" alt="shirt-lenght"> 
+                <div id="demo4" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Shirt length</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo4"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The shirt length measurement is taken from a point straight out from the center of the neck opening down to where your shirt ends.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/back.jpg" alt="shoulder-width"> 
+                <div id="demo5" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Shoulder width</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo5"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The shoulder width measurement is taken at the top of the shirt from one sleeve seam to the other.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/arm_upper.jpg" alt="long sleeve"> 
+                <div id="demo6" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Long sleeve - upper length</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo6"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The upper length measurement is taken from the top of the shoulder where the sleeve meets the body to the end of the cuff.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/cuff.jpg" alt="cuff"> 
+                <div id="demo7" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Cuff</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo7"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The cuff measurement is taken across the open cuff, from the outer edge of the button hole to the center of the button.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/mens-shirt-measurement/armpit.jpg" alt="sleeve width"> 
+                <div id="demo8" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Sleeve width</h4>
+                    <button class="toggle-btn1" data-toggle="collapse" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The sleeve width measurement is taken across the sleeve where it meets the shirt body. Straighten the seam.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider slider-nav">
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo0">
+                <img src="data/images/mens-shirt-measurement/neck.svg">
+                <span>Collar</span>
+              </div>
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo1">
+                <img src="data/images/mens-shirt-measurement/chest.svg">
+                <span>Chest</span>
+              </div>
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo2">
+                <img src="data/images/mens-shirt-measurement/waist.svg">
+                <span>Waist</span>
+              </div>
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo3">
+                <img src="data/images/mens-shirt-measurement/hip.svg">
+                <span>Bottom</span>
+              </div>
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo4">
+                <img src="data/images/mens-shirt-measurement/shirtl.svg">
+                <span>Shirt lenght</span>
+              </div>
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo5">
+                <img src="data/images/mens-shirt-measurement/back.svg">
+                <span>Shoulder width</span>
+              </div>
+              
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo6">
+                <img src="data/images/mens-shirt-measurement/arm.svg">
+                <span>Long sleeve - upper length</span>
+              </div>
+              
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo7">
+                <img src="data/images/mens-shirt-measurement/cuff.svg">
+                <span>Cuff</span>
+              </div>
+
+              <div class="toggle-btn" data-toggle="collapse" data-target="#demo8">
+                <img src="data/images/mens-shirt-measurement/armpit.svg">
+                <span>Sleeve width</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src='data/js/slick.min.js'></script>
+  <script>
+    $('.slider-for').slick({
+      arrows: false,
+      fade: true,
+      cssEase: 'linear',
+    });
+    $('.slider-nav').slick({
+      arrows: true,
+      asNavFor: '.slider-for,.slider-x',
+      centerMode: true,
+      centerPadding: '60px',
+      dots: false,
+      speed: 500,
+      focusOnSelect: true,
+      slidesToShow: 8,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+    $(".toggle-btn1").click(function(){
+      $(".myModal").removeClass('show');
+    });
+
+    $('.slick-arrow').click(function(){
+      $(".myModal").addClass('show');
+    });
+    
+    $(".toggle-btn").click(function(){
+      if(!$(".myModal").hasClass("show")){
+        $(".myModal").addClass('show');
+      }
+      else{
+        $(".myModal").addClass('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

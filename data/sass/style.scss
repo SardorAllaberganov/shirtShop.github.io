@@ -297,6 +297,79 @@ a{
     background: #66a8a6;
   }
 }
+.body-measurement{
+  .owl-carousel{
+    background: rgba($color: #000000, $alpha: .5);
+    padding: 10px 0;
+    .item{
+      background: red;
+      text-align: center;
+      height: 100px;
+      padding: 30px;
+    }
+    &-next{
+      position: absolute;
+      top: 0;
+
+    }
+  }
+}
+
+#owl-demo{
+  position: absolute;
+  bottom: 10px;
+}
+.owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next,
+  .owl-carousel .owl-dot {
+    font-family: 'fontAwesome';
+
+}
+.owl-carousel{
+  position: relative;
+}
+.owl-carousel .owl-nav{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateY(-50%);
+}
+%shared-owl-nav{
+  margin: 0;
+  background: rgba(0,0,0,0.5)!important;
+  font-size: 30px!important;
+  height: 120px!important;
+  position: absolute;
+  top: -10px;
+  border-radius: 0!important;
+  span{
+    padding: 20px;
+    color: #fff;
+  }
+}
+.owl-item.active.center > div.item::before{
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 100%;
+  background: black;
+  top: 0;
+  left: 0;
+}
+
+.quick-size{
+  bottom: 0;
+  right: 0;
+}
+
+.owl-carousel .owl-nav .owl-prev{
+  left: 0;
+  @extend %shared-owl-nav;
+}
+.owl-carousel .owl-nav .owl-next{
+  right: 0;
+  @extend %shared-owl-nav;
+}
 
 .change-details{
   padding: 30px;

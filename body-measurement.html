@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shirtShop">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Shirt Shop</title>
+  <link rel="shortcut icon" href="data/images/logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="data/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+  <!-- <link rel="stylesheet" href="data/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="data/css/owl.theme.default.min.css"> -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css'>
+  <link rel='stylesheet' href='http://kenwheeler.github.io/slick/slick/slick-theme.css'>
+
+  <link rel="stylesheet" href="data/css/animate.css">  
+  <link rel="stylesheet" href="data/css/style.css">
+  <script src="data/js/index.js"></script>
+  <script src="data/js/cart.js"></script>
+
+  
+  
+<style>
+  
+  .slider-for{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #3498db;
+  }
+
+  .slider-nav{
+    position: fixed;
+    bottom: 0;
+    height: 130px;
+    padding: 0 30px;
+    left: 50%;
+    background: rgba(0,0,0,.5);
+    transform: translateX(-50%);
+    width: 100%;
+    
+  }
+  .slick-slide { 
+    background: #fff;
+  }
+
+  .slider-nav div{
+    padding: 10px;
+    margin: 0 5px;
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+  }
+  .slider-nav img{
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    max-width: 80px;
+  }
+  .slider-nav span{
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    width: 100%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    clear: both;
+    z-index: 99;
+  }
+  .slider-nav h3{
+    padding: 20px;
+  }
+  .slick-center.slick-active{
+    height: 110%;
+    margin-top: -5px;
+    transition: all 0.3s;
+  }
+  .slick-center.slick-active::before {
+    position: absolute;
+    transition: all 0.3s;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    height: 4px;
+    background: red;
+    width: 100%;
+  }
+  .slick-arrow{
+    z-index: 99999;
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    background: rgba(0,0,0,.7)!important;
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next{
+    right: 0;
+  }
+  .slider-for img{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+  }
+  .logo{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+  }
+  .logo div{
+    max-width: 200px;
+  }
+  .logo img{
+    width: 100%;
+  }
+  .logo h2{
+    text-align: center
+  }
+  .logo p{
+    text-align: center;
+    display: block;
+    font-style: italic;
+    font-size: .8em;
+    font-family: montserrat-regular;
+  }
+  .myModal{
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 540px;
+    background: rgba(255,255,255,.7);
+    padding: 20px;
+  }
+  .modal-title{
+    text-align: center;
+    position: relative;
+  }
+  .modal-title h4{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .modal-title button{
+    right: 10px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: #eeeeee;
+    border-radius: 50%;
+  }
+  .modal-title button img{
+    width: 100%;
+    height: 100%;
+  }
+  .modal-body{
+    margin: 30px 0 0 0;
+    text-align: center;
+  }
+  .modal-body input{
+    text-align: center;
+  }
+  .button{
+    position: absolute;
+    top: 50px;
+    left: 400px;
+  }
+  .button-group{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    z-index: 99999;
+    right: 20px;
+  }
+  .button-group button{
+    display: block;
+    padding: 8px 10px;
+    margin: 20px;
+    max-width: 100px;
+    width: 100%;
+    cursor: pointer;
+    font-family: montserrat-regular;
+    letter-spacing: 1px;
+  }
+  .button-group button:first-child{
+    background: #265e89;
+    color: #fff;
+    border: 1px solid #265e89;
+  }
+  .button-group button:last-child{
+    background: #fff;
+    border: 1px solid #fff;
+  }
+  .quick-size-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    z-index: 99999;
+    left: 20px;
+  }
+  .quick-size-btn button{
+    background: #265e89;
+    color: #fff;
+    border: 1px solid #265e89;
+    padding: 8px 10px;
+    margin: 20px;
+    text-align: center;
+    max-width: 100px;
+    width: 100%;
+    cursor: pointer;
+    font-family: montserrat-regular;
+    letter-spacing: 1px;
+  }
+  input{
+    max-width: 60px;
+  }
+  .modal{
+    z-index: 99999;
+  }
+  .modal input{
+    margin: 0 5px 0 30px;
+    border: 1px solid #333333;
+  }
+  .modal button{
+    width: 60%;
+    padding: 10px 25px;
+    border: none;
+    background: #265e89;
+    color: #fff;
+  }
+  .modal p.text-center{
+    cursor: pointer;
+  }
+  .modal .closeBtn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background: #eeeeee;
+    top: -50px;
+    right: -20px;
+  }
+  .closeBtn img{
+    width: 100%;
+    object-fit: cover;
+  }
+  @media only screen and (max-width: 768px) and (orientation: landscape){
+    .slider-nav{
+      height: 100px;
+    }
+    .slider-nav img{
+      width: 60px;
+      height: 60px;
+      margin: 0;
+    }
+    .myModal{
+      max-width: 400px;
+      max-height: 200px;
+      bottom: 120px;
+    }
+    .myModal p{
+      font-size: 12px;
+    }
+    .quick-size-btn{
+      left: 5px;
+    }
+    .button-group{
+      right: 25px;
+    }
+    .quick-size-btn button,.button-group button{
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 576px) and (orientation: portrait){
+    .slider-nav{
+      height: 100px;
+    }
+    .slider-nav img{
+      width: 60px;
+      height: 60px;
+      margin: 0;
+    }
+    .myModal{
+      max-width: 400px;
+      max-height: 200px;
+      bottom: 105px;
+    }
+    .myModal .modal-body{
+      padding: 0;
+    }
+    .myModal p{
+      font-size: 12px;
+    }
+    .quick-size-btn,.button-group{
+      top: 40%;
+    }
+    .quick-size-btn{
+      left: 5px;
+    }
+    .button-group{
+      right: 25px;
+    }
+    .quick-size-btn button,.button-group button{
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  }
+</style>
+
+
+</head>
+<body ng-controller="cart as cart">
+  <div ng-controller="measurementController" class="body-measurement">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="logo">
+            <div><img src="data/images/logo.png" alt="logo"></div>
+            <p>One size only - Yours</p>
+          </div>
+          <div class="row button-group">
+            <button>Save</button>
+            <button><i class="fa fa-trash-o" aria-hidden="true"></i> Reset</button>
+          </div>
+          <div class="row quick-size-btn">
+            <button data-toggle="modal" data-target="#quickSize">
+              Quick <br>
+              <strong>Size</strong> 
+            </button>
+          </div>
+          <div class="col-md-12">
+            <div class="slider slider-for">
+              <div> 
+                <img src="data/images/body-measurement/neck.jpg" alt="neck"> 
+                <div id="demo0" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Neck</h4>
+                    <button class="toggle-btn1" data-target="#demo0"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The neck measurement is taken around the neck with the tape resting on your shoulders. You should put one finger between the tape and the neck if you want to allow for some extra room.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/chest.jpg" alt="chest"> 
+                <div id="demo1" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Chest</h4>
+                    <button class="toggle-btn1" data-target="#demo1"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The chest measurement is taken as a circumference measurement around your chest at the widest point. Stand in a relaxed posture and breathe out.This value is outside the permitted range</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/waist.jpg" alt="waist">
+                <div id="demo2" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Waist</h4>
+                    <button class="toggle-btn1" data-target="#demo2"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The waist measurement is taken across the shirt at the narrowest part of the waist. Note that this is NOT a circumference measurement.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/hip.jpg" alt="bottom"> 
+                <div id="demo3" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Seat</h4>
+                    <button class="toggle-btn1" data-target="#demo3"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The seat measurement is taken as a circumference measurement around your seat at the widest part.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/shirtl.jpg" alt="shirt-lenght"> 
+                <div id="demo4" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Shirt length</h4>
+                    <button class="toggle-btn1" data-target="#demo4"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The shirt length measurement is taken from the top of the shoulder, close to the mid side of your neck, following your body down to the point where you want your shirt to end.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/back.jpg" alt="shoulder-width"> 
+                <div id="demo5" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Shoulder width</h4>
+                    <button class="toggle-btn1" data-target="#demo5"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Think of a line going from your armpit straight upwards to your shoulder. Measure between those two points and hold the tape measure straight.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/arm.jpg" alt="long sleeve"> 
+                <div id="demo6" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Arm length</h4>
+                    <button class="toggle-btn1" data-target="#demo6"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The sleeve length measurement is taken from the point of your shoulder (where you took the shoulder width measurement), following your bent arm down to where you want the sleeve to end. NOTE 1! Bend your arm slightly when taking this measurement. NOTE 2! This measurement is always the full length of the arm. For short sleeve and 3/4 sleeve you should still measure the full length of the arm.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/cuff.jpg" alt="cuff"> 
+                <div id="demo7" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Wrist</h4>
+                    <button class="toggle-btn1" data-target="#demo7"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The wrist measurement is taken as a circumference measurement around your wrist. NOTE ! We will add movement ease according to the cuff you select.
+                      This value is outside the permitted range</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+              <div> 
+                <img src="data/images/body-measurement/realhip.jpg" alt="sleeve width"> 
+                <div id="demo8" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Hip measurement (for the bottoms)</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The hip measurement is a circumferential measurement. NOTE! please measure directly on the body i.e. not outside of the garment or on top of a belt.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+
+              <div> 
+                <img src="data/images/body-measurement/hip.jpg" alt="sleeve width"> 
+                <div id="demo9" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Seat measurement (for the bottoms)</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The seat measurement is a circumferential measurement taken around the seat at your widest point</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+
+              <div> 
+                <img src="data/images/body-measurement/innerleglength_long.jpg" alt="sleeve width"> 
+                <div id="demo10" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Inseam</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The inseam is measured from the crotch along the inner side of the leg straight down to the floor. Stand upright, do not bend the leg and ask someone to help you take the measurement.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+
+              <div> 
+                <img src="data/images/body-measurement/realhip.jpg" alt="sleeve width"> 
+                <div id="demo11" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Hip</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The hip measurement is taken as a circumference measurement around your hips at the widest part.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+
+              <div> 
+                <img src="data/images/body-measurement/coat_sleeve.jpg" alt="sleeve width"> 
+                <div id="demo12" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Sleeve length - Jacket and Coat</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The sleeve length is being measured from the edge of your shoulder down to where you would like the sleeve to end. Stand relaxed and with both arms hanging loosely down the sides.</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+
+              <div> 
+                <img src="data/images/body-measurement/suit_sleeve.jpg" alt="sleeve width"> 
+                <div id="demo13" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Sleeve length suit jacket</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Measure from your shoulders furthest point down to your knuckles. Keep your arm and the measuring tape relaxed. Our tailors will adjust this measurement to a recommended sleeve length.
+
+                        This value is outside the permitted ra</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+
+              <div> 
+                <img src="data/images/body-measurement/suit_length.jpg" alt="sleeve width"> 
+                <div id="demo14" class="myModal collapse show">
+                  <div class="modal-title">
+                    <h4>Jacket length</h4>
+                    <button class="toggle-btn1" data-target="#demo8"><img src="data/images/icons/close.svg" alt=""></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Jacket length (back) is taken from the top bone of your spine down to the point where you want your jacket to end (in general, this measurements lies between 70-80 cm depending on height and personal taste).</p>
+                    <input type="text"> cm
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider slider-nav">
+
+              <div class="toggle-btn" data-target="#demo0">
+                <img src="data/images/body-measurement/neck.svg">
+                <span>Neck</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo1">
+                <img src="data/images/body-measurement/chest.svg">
+                <span>Chest</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo2">
+                <img src="data/images/body-measurement/waist.svg">
+                <span>Waist</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo3">
+                <img src="data/images/body-measurement/hip.svg">
+                <span>Seat</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo4">
+                <img src="data/images/body-measurement/shirtl.svg">
+                <span>Shirt lenght</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo5">
+                <img src="data/images/body-measurement/back.svg">
+                <span>Shoulder width</span>
+              </div>
+              
+              <div class="toggle-btn" data-target="#demo6">
+                <img src="data/images/body-measurement/arm.svg">
+                <span>Arm length</span>
+              </div>
+              
+              <div class="toggle-btn" data-target="#demo7">
+                <img src="data/images/body-measurement/cuff.svg">
+                <span>Wrist</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo8">
+                <img src="data/images/body-measurement/pant_hip.svg">
+                <span>Hip measurement (for the bottoms)</span>
+              </div>
+              
+              <div class="toggle-btn" data-target="#demo9">
+                <img src="data/images/body-measurement/pant_seat.svg">
+                <span>Seat measurement (for the bottoms)</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo10">
+                <img src="data/images/body-measurement/innerlength_long.svg">
+                <span>Inseam</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo11">
+                <img src="data/images/body-measurement/realhip.svg">
+                <span>Hip</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo12">
+                <img src="data/images/body-measurement/coat_sleeve.svg">
+                <span>Sleeve length - Jacket and Coat</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo13">
+                <img src="data/images/body-measurement/suit_sleeve.svg">
+                <span>Sleeve length suit jacket</span>
+              </div>
+
+              <div class="toggle-btn" data-target="#demo14">
+                <img src="data/images/body-measurement/suit_length.svg">
+                <span>Jacket length</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- The Modal -->
+  <div class="modal fade" id="quickSize">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <button data-dismiss="modal" class="closeBtn"><img src="data/images/icons/close.svg" alt=""></button>
+          <h3>QuickSize™ <hr></h3>
+          <p>QuickSize™ helps you create a measurement profile using three easy measurements, based on data from thousands of satisfied customers.</p>
+          <form action="">
+            <div class="m-3">
+              <label for="">
+                My height <input type="text"> cm
+              </label>
+            </div>
+            <div class="m-3">
+              <label for="">
+                My weight <input type="text"> cm
+              </label>
+            </div>
+            <div class="m-3">
+              <label for="">
+                Collar size <input type="text"> cm
+              </label>
+            </div>
+            <button>Calculate my measurements</button>
+          </form>
+        </div>
+        <p class="text-center m-4" data-dismiss="modal">No thanks, I'd rather add all measurements manually</p>
+      </div>
+    </div>
+  </div>
+
+  <script src='data/js/slick.min.js'></script>
+  <script>
+    
+    $('.slider-for').slick({
+      arrows: false,
+      fade: true,
+      cssEase: 'linear',
+    });
+    $('.slider-nav').slick({
+      arrows: true,
+      asNavFor: '.slider-for,.slider-x',
+      centerMode: true,
+      centerPadding: '60px',
+      dots: false,
+      speed: 500,
+      focusOnSelect: true,
+      slidesToShow: 8,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+
+    $(".toggle-btn1").click(function(){
+      $(".myModal").removeClass('show');
+    });
+
+    $('.slick-arrow').click(function(){
+      $(".myModal").addClass('show');
+    });
+    
+    $(".toggle-btn").click(function(){
+      if(!$(".myModal").hasClass("show")){
+        $(".myModal").addClass('show');
+      }
+      else{
+        $(".myModal").addClass('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

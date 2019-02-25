@@ -284,6 +284,80 @@ a {
   background: #66a8a6;
 }
 
+.body-measurement .owl-carousel {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+}
+.body-measurement .owl-carousel .item {
+  background: red;
+  text-align: center;
+  height: 100px;
+  padding: 30px;
+}
+.body-measurement .owl-carousel-next {
+  position: absolute;
+  top: 0;
+}
+
+#owl-demo {
+  position: absolute;
+  bottom: 10px;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+  font-family: "fontAwesome";
+}
+
+.owl-carousel {
+  position: relative;
+}
+
+.owl-carousel .owl-nav {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateY(-50%);
+}
+
+.owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.5) !important;
+  font-size: 30px !important;
+  height: 120px !important;
+  position: absolute;
+  top: -10px;
+  border-radius: 0 !important;
+}
+.owl-carousel .owl-nav .owl-next span, .owl-carousel .owl-nav .owl-prev span {
+  padding: 20px;
+  color: #fff;
+}
+
+.owl-item.active.center > div.item::before {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 100%;
+  background: black;
+  top: 0;
+  left: 0;
+}
+
+.quick-size {
+  bottom: 0;
+  right: 0;
+}
+
+.owl-carousel .owl-nav .owl-prev {
+  left: 0;
+}
+
+.owl-carousel .owl-nav .owl-next {
+  right: 0;
+}
+
 .change-details {
   padding: 30px;
   color: #333333;

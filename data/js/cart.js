@@ -153,6 +153,10 @@ var app = angular.module('shirtShop',[]);
 //   $scope.$location = $location;
 // })
 
+app.controller("measurementController", ["$scope", function($measurement){
+
+}]);
+
 app.controller("productController", ["$scope", function ($products) {
   $products.product = data;
   $products.fabrics = fabrics;
