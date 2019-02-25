@@ -414,7 +414,6 @@
                         <div class="modal-content">
                   
                           <div class="modal-header">
-                            <h2 class="modal-title">{{ fabric.brand }}</h2>
                             <button type="button" class="close1" data-dismiss="modal"></button>
                           </div>
                   
@@ -424,8 +423,30 @@
                                 <img ng-src="{{ fabric.ImageModal }}" alt="">
                               </div>
                               <div class="col-md-6">
-                                <h3>Dobby weave, 100% Polyester</h3>
-                                <h4>{{ fabric.price }} сўм</h4>
+                                <h2>{{ fabric.brand }}</h2>
+                                <h6>Dobby weave, 100% Polyester</h6>
+                                <h4 class="my-4">{{ fabric.price }} сўм</h4>
+                                <p class="mb-4">A fine french oxford weave that goes well with a suit. A subtle sheen makes this fabric look very exclusive at great value!</p>
+                                <div class="row">
+                                  <div class="col-md-4 col-sm-4">
+                                    <h4 class="text-center">Weight</h4>
+                                    <div class="text-center"><img src="data/images/icons/weight1.svg" alt=""></div>
+                                    <p class="text-center">130 g/m2</p>
+                                  </div>
+                                  <div class="col-md-4 col-sm-4">
+                                    <h4 class="text-center">Yarn</h4>
+                                    <div class="text-center"><img src="data/images/icons/ply1.svg" alt=""></div>
+                                    <p class="text-center">40/1</p>
+                                  </div>
+                                  <div class="col-md-4 col-sm-4">
+                                    <h4 class="text-center">Weave</h4>
+                                    <div class="text-center"><img src="data/images/icons/frenchoxford.png" alt=""></div>
+                                    <p class="text-center">French Oxford</p>
+                                  </div>
+                                </div>
+                                <div>
+                                  <button class="newShirt" onclick="location.href='shirt-measurement.html'">Design with this fabric New shirt</button>
+                                </div>
                               </div>
                             </div>
                           </div>

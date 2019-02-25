@@ -405,6 +405,7 @@ a{
   width: 40px;
   height: 40px;
   border: none;
+  right: 0;
   font-size: 1.5rem;
   font-weight: 700;
   color: #000;
@@ -413,6 +414,14 @@ a{
   &:hover{
     opacity: .8;
   }
+}
+.newShirt{
+  background: #265e89;
+  position: relative;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 30px 0;
 }
 .fabrics{
   background: #f2f2f2;
@@ -423,6 +432,13 @@ a{
     font-family: Montserrat-regular;
     img{
       width: 100%;
+    }
+    .modal-body{
+      img{
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+      }
     }
   }
   img{
