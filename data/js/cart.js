@@ -9,7 +9,7 @@ var data = [{
   country: 'Italy',
   //Image: "/data/images/3.jpg"
   Image: "/shirtShop.github.io/data/images/3.jpg"
-},{
+}, {
   id: 2,
   brand: 'product2',
   price: 145000,
@@ -20,7 +20,7 @@ var data = [{
   country: 'Uzbekistan',
   //Image: '/data/images/4.jpg'
   Image: '/shirtShop.github.io/data/images/4.jpg'
-},{
+}, {
   id: 3,
   brand: 'product3',
   price: 132000,
@@ -31,7 +31,7 @@ var data = [{
   country: 'France',
   //Image: '/data/images/5.jpg'
   Image: '/shirtShop.github.io/data/images/5.jpg'
-},{
+}, {
   id: 4,
   brand: 'product4',
   price: 99900,
@@ -44,7 +44,7 @@ var data = [{
   Image: '/shirtShop.github.io/data/images/6.jpg',
 }];
 
-var weight = ['75-99', '100-124','125-149','80-120', '105-128','130-159'];
+var weight = ['75-99', '100-124', '125-149', '80-120', '105-128', '130-159'];
 
 var fabrics = [{
   id: 1,
@@ -153,8 +153,18 @@ var app = angular.module('shirtShop',[]);
 //   $scope.$location = $location;
 // })
 
-app.controller("measurementController", ["$scope", function($measurement){
+function measureFunc(){
+  var height = document.getElementById("height").value;
+  document.getElementById("neck").value = parseInt(height * 0.215);
+  console.log(height);
+}
 
+app.component("navComponent", {
+  templateUrl: '../../navbar.html',
+  controller: 'cart',
+});
+
+app.controller("measurementController", ["$scope", function($measurement){
 }]);
 
 app.controller("productController", ["$scope", function ($products) {

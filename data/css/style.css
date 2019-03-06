@@ -45,6 +45,11 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 20px;
   background: white;
 }
+.navbar .topIcons {
+  margin: 0;
+  padding: 0;
+  width: 105px;
+}
 .navbar .topIcons .linedivide1 {
   color: #e5e5e5;
   margin-left: 10px;
@@ -114,8 +119,8 @@ input[type=number]::-webkit-outer-spin-button {
   color: #fff;
   background: #e65540;
 }
-.navbar .navbar-brand {
-  color: #333333;
+.navbar .navbar-brand img {
+  width: 200px;
 }
 .navbar .nav .nav-link {
   margin: 0 10px;
@@ -150,7 +155,6 @@ a {
 }
 
 .topbar {
-  height: 45px;
   background-color: #f5f5f5;
 }
 .topbar-social {
@@ -180,6 +184,10 @@ a {
   font-size: 14px;
   color: #888888;
   margin-top: 10px;
+}
+.topbar img {
+  width: 250px;
+  padding: 20px;
 }
 .topbar .currency {
   padding: 8px;
@@ -232,7 +240,8 @@ a {
 .slide1 .carousel-control-next-icon {
   background-image: url(../images/icons/next.png);
 }
-.slide1 .carousel-control-next-icon, .slide1 .carousel-control-prev-icon {
+.slide1 .carousel-control-next-icon,
+.slide1 .carousel-control-prev-icon {
   width: 40px;
   height: 40px;
   background-size: 60%;
@@ -240,7 +249,8 @@ a {
   transition: all 0.2s;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.slide1 .carousel-control-next-icon:hover, .slide1 .carousel-control-prev-icon:hover {
+.slide1 .carousel-control-next-icon:hover,
+.slide1 .carousel-control-prev-icon:hover {
   background-color: rgba(255, 0, 0, 0.6);
 }
 .slide1 .carousel-control-prev-icon {
@@ -496,7 +506,8 @@ a {
   letter-spacing: 2px;
 }
 
-.fabrics-page-content h1, .fabrics-page-content p {
+.fabrics-page-content h1,
+.fabrics-page-content p {
   font-family: "montserrat-regular";
 }
 .fabrics-page input {
@@ -650,6 +661,7 @@ a {
   object-fit: cover;
   object-position: top;
   width: 100%;
+  height: 100%;
 }
 .instaSection .instaBlocks a {
   position: absolute;
@@ -839,13 +851,15 @@ a {
   font-size: 100px;
 }
 
-.login-title, .register-title {
+.login-title,
+.register-title {
   font-family: montserrat-medium;
   margin: 1em auto 2em;
   position: relative;
   color: #555555;
 }
-.login-title::after, .register-title::after {
+.login-title::after,
+.register-title::after {
   content: "";
   bottom: -0.9em;
   left: 50%;
@@ -856,13 +870,16 @@ a {
   height: 3px;
   width: 30px;
 }
-.login h4, .register h4 {
+.login h4,
+.register h4 {
   margin: 30px auto;
   position: relative;
   font-family: montserrat-regular;
   max-width: 580px;
 }
-.login h4::before, .login h4::after, .register h4::before, .register h4::after {
+.login h4::before, .login h4::after,
+.register h4::before,
+.register h4::after {
   position: absolute;
   max-width: 580px;
   content: "";
@@ -872,78 +889,112 @@ a {
   width: 50%;
   height: 1px;
 }
-.login h4::before, .register h4::before {
+.login h4::before,
+.register h4::before {
   left: -25px;
 }
-.login h4::after, .register h4::after {
+.login h4::after,
+.register h4::after {
   right: -25px;
 }
-.login .login-input-forms, .login .register-input-forms, .register .login-input-forms, .register .register-input-forms {
+.login .login-input-forms,
+.login .register-input-forms,
+.register .login-input-forms,
+.register .register-input-forms {
   width: 100%;
   max-width: 610px;
   padding: 0 15px;
 }
-.login .login-input-forms button, .login .register-input-forms button, .register .login-input-forms button, .register .register-input-forms button {
+.login .login-input-forms button,
+.login .register-input-forms button,
+.register .login-input-forms button,
+.register .register-input-forms button {
   width: 100%;
   color: white;
   border: none;
   cursor: pointer;
 }
-.login .login-input-forms .login-btn, .login .register-input-forms .login-btn, .register .login-input-forms .login-btn, .register .register-input-forms .login-btn {
+.login .login-input-forms .login-btn,
+.login .register-input-forms .login-btn,
+.register .login-input-forms .login-btn,
+.register .register-input-forms .login-btn {
   background-color: #1a2d40;
 }
-.login .login-input-forms .facebook-btn, .login .register-input-forms .facebook-btn, .register .login-input-forms .facebook-btn, .register .register-input-forms .facebook-btn {
+.login .login-input-forms .facebook-btn,
+.login .register-input-forms .facebook-btn,
+.register .login-input-forms .facebook-btn,
+.register .register-input-forms .facebook-btn {
   background-color: #3b5998;
   margin-bottom: 1em;
   font-family: montserrat-medium;
 }
-.login .login-input-forms .facebook-btn i, .login .register-input-forms .facebook-btn i, .register .login-input-forms .facebook-btn i, .register .register-input-forms .facebook-btn i {
+.login .login-input-forms .facebook-btn i,
+.login .register-input-forms .facebook-btn i,
+.register .login-input-forms .facebook-btn i,
+.register .register-input-forms .facebook-btn i {
   transform: scale(1.5);
   margin-right: 1em;
 }
-.login .login-input-forms .google-btn, .login .register-input-forms .google-btn, .register .login-input-forms .google-btn, .register .register-input-forms .google-btn {
+.login .login-input-forms .google-btn,
+.login .register-input-forms .google-btn,
+.register .login-input-forms .google-btn,
+.register .register-input-forms .google-btn {
   background-color: white;
   color: #555 !important;
   font-family: montserrat-medium;
   border: 1px solid #e3e3e3;
 }
-.login .login-input-forms .google-btn img, .login .register-input-forms .google-btn img, .register .login-input-forms .google-btn img, .register .register-input-forms .google-btn img {
+.login .login-input-forms .google-btn img,
+.login .register-input-forms .google-btn img,
+.register .login-input-forms .google-btn img,
+.register .register-input-forms .google-btn img {
   height: 1em;
   transform: scale(1.5);
   margin-right: 1em;
 }
-.login .login-input-forms input[type=text], .login .register-input-forms input[type=text], .register .login-input-forms input[type=text], .register .register-input-forms input[type=text] {
+.login .login-input-forms input[type=text],
+.login .register-input-forms input[type=text],
+.register .login-input-forms input[type=text],
+.register .register-input-forms input[type=text] {
   margin: 20px 0;
   border-radius: 0;
   max-width: 610px;
   width: 100%;
 }
-.login .login-input-forms .custom-control, .login .register-input-forms .custom-control, .register .login-input-forms .custom-control, .register .register-input-forms .custom-control {
+.login .login-input-forms .custom-control,
+.login .register-input-forms .custom-control,
+.register .login-input-forms .custom-control,
+.register .register-input-forms .custom-control {
   margin: 20px 0;
 }
-.login .forgotPass, .register .forgotPass {
+.login .forgotPass,
+.register .forgotPass {
   position: relative;
   text-align: center;
   margin-top: 1.2em;
   margin-bottom: 2em;
   padding: 0 0 50px;
 }
-.login .forgotPass a, .register .forgotPass a {
+.login .forgotPass a,
+.register .forgotPass a {
   font-family: montserrat-regular;
   text-decoration: underline !important;
   color: #1a2d40;
 }
-.login h6, .register h6 {
+.login h6,
+.register h6 {
   text-align: center;
   margin: 32px auto;
   color: #333;
 }
-.login h6 a, .register h6 a {
+.login h6 a,
+.register h6 a {
   text-decoration: underline !important;
   color: #555555;
   transition: all 0.2s;
 }
-.login h6 a:hover, .register h6 a:hover {
+.login h6 a:hover,
+.register h6 a:hover {
   color: #000000;
 }
 
@@ -1146,7 +1197,8 @@ a {
 .contactUsPage .inner-box .contactForm {
   padding: 5px;
 }
-.contactUsPage .inner-box .contactForm input, .contactUsPage .inner-box .contactForm textarea {
+.contactUsPage .inner-box .contactForm input,
+.contactUsPage .inner-box .contactForm textarea {
   margin: 20px 0;
   resize: none;
   outline: none !important;
@@ -1169,7 +1221,8 @@ a {
     display: none;
   }
 
-  .login-input-forms button, .register-input-forms button {
+  .login-input-forms button,
+.register-input-forms button {
     font-size: 19.2px;
     padding: 20px 60px 22px;
   }
@@ -1183,7 +1236,7 @@ a {
   }
 
   .topIcons {
-    position: absolute;
+    position: relative;
     right: 50px;
   }
   .topIcons .header-icons-noti {
@@ -1280,13 +1333,14 @@ a {
     display: none;
   }
 
-  .login-input-forms button, .register-input-forms button {
+  .login-input-forms button,
+.register-input-forms button {
     font-size: 19.2px;
     padding: 20px 60px 22px;
   }
 
   .topIcons {
-    position: absolute;
+    position: relative;
     right: 50px;
   }
   .topIcons .header-icons-noti {
@@ -1330,13 +1384,38 @@ a {
   .showFilterBtn {
     display: none;
   }
+
+  .navbar-collapse {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 5px 10px #eee;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    z-index: 9999999;
+    overflow-y: scroll !important;
+    max-height: 75vh !important;
+  }
 }
 @media only screen and (max-width: 992px) and (orientation: landscape) {
   .showFilterBtn {
     display: none;
   }
 
-  .login-input-forms button, .register-input-forms button {
+  .navbar-collapse {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 5px 10px #eee;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    z-index: 9999999;
+    overflow-y: scroll !important;
+    max-height: 75vh !important;
+  }
+
+  .login-input-forms button,
+.register-input-forms button {
     font-size: 14px;
     padding: 20px;
   }
@@ -1391,6 +1470,14 @@ a {
   .cartSide {
     margin-top: 20px;
   }
+
+  .instaBlocks {
+    width: 20%;
+  }
+
+  .instaSection .instaBlocks:hover a {
+    font-size: 10px;
+  }
 }
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   .hideBtn {
@@ -1431,7 +1518,8 @@ a {
     margin-top: 20px;
   }
 
-  .login-input-forms button, .register-input-forms button {
+  .login-input-forms button,
+.register-input-forms button {
     font-size: 14px;
     padding: 20px;
   }
@@ -1530,7 +1618,7 @@ a {
   .instaBlocks {
     position: relative;
     top: 0;
-    width: 20%;
+    width: 100%;
     margin: 0;
     height: 300px;
   }
@@ -1539,6 +1627,14 @@ a {
   }
 }
 @media only screen and (max-width: 768px) and (orientation: landscape) {
+  .instaBlocks {
+    width: 100%;
+  }
+
+  .navbar-brand img {
+    width: 160px !important;
+  }
+
   .measurement-content {
     margin-top: 10px;
     text-align: center;
@@ -1684,6 +1780,14 @@ a {
   }
 }
 @media only screen and (max-width: 576px) and (orientation: portrait) {
+  .instaBlocks {
+    width: 100%;
+  }
+
+  .navbar-brand img {
+    width: 130px !important;
+  }
+
   .measurement-content {
     margin-top: 10px;
     text-align: center;
@@ -1698,7 +1802,7 @@ a {
 
   .topIcons {
     position: relative;
-    right: 20px;
+    right: -15px;
   }
   .topIcons .header-icons-noti {
     right: -8px;

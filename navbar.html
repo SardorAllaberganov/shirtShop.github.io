@@ -1,0 +1,78 @@
+<script src="data/js/index.js"></script>
+<nav class="navbar navbar-expand-lg" data-toggle="affix">
+    <button class="navbar-toggler toggle-btn" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        ☰
+    </button>
+    <a class="navbar-brand mx-auto" href="index.html"> <img src="data/images/logo.png" alt=""> </a>
+    <div class="collapse navbar-collapse" id="collapsingNavbar">
+      <ul class="nav navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Bosh sahifa</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="products.html">Tovarlar</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="fabrics.html">Matolar</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="configurator.html">Konfigurator</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="about.html">Biz haqimizda</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="contactus.html">Bog'lanish</a>
+        </li>
+      </ul>
+    </div>
+    <ul class="topIcons ml-auto">
+      <li class="dropdown">
+        <a href="login.html"><img src="data/images/icons/icon-header-01.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON" alt="user"></a>
+        <div class="dropdown-menu">
+          <h4 class="text-center my-4">Hello, User</h4>
+          <p class="my-4 text-center">
+            <button class="btn" onclick="location.href='personal.html'">My Page</button>
+          </p>
+          <p class="my-4 text-center">
+            <button class="btn">Log out</button>
+          </p>
+        </div>
+      </li> 
+      <li class="linedivide1"> | </li>
+      <li class="dropdown">
+        <img src="data/images/icons/icon-header-02.png" data-toggle="dropdown" class="header-icon1 js-show-header-dropdown" alt="ICON">
+        <span class="header-icons-noti"><p> {{ cart.length }} </p></span>
+        <div class="dropdown-menu">
+          <h5 class="dropdown-header">Savatcha</h5>
+          <ul class="cartList">
+            <li class="cartListItem dropdow-item" ng-repeat="item in cart track by $index">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="productBrand"> {{ item.brand }} </p>
+                    <input type="text" readonly ng-model="item.count" class="productCount" />
+                    <span> {{ 'ta = ' + getCost(item) }} </span>
+                  </div>
+                  <div class="col-sm-3">
+                    <button class="btn btn-danger btn-sm" ng-click="removeItem(item);">
+                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <h5 class="dropdown-header">Dropdown header</h5>
+          <p class="totalSum">Total: {{ getTotal() + ' сўм'}}</p>
+          <hr>
+          <p class="text-center basket-btn">
+            <a href="basket.html"> Savatchani tekshirish </a>
+          </p>
+        </div>
+      </li> 
+    </ul>
+  </nav>

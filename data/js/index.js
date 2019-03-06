@@ -17,6 +17,7 @@ $(document).ready(function() {
   };
 
   
+  
 
   $('[data-toggle="affix"]').each(function() {
     var ele = $(this),
@@ -58,3 +59,6 @@ $(document).ready(function () {
 //         $(this).toggleClass('show');
 //     });
 //   });
+
+
+
