@@ -152,20 +152,12 @@ var app = angular.module('shirtShop',[]);
 //   $scope.params = $routeParams;
 //   $scope.$location = $location;
 // })
-
-function measureFunc(){
-  var height = document.getElementById("height").value;
-  document.getElementById("neck").value = parseInt(height * 0.215);
-  console.log(height);
-}
-
 app.component("navComponent", {
   templateUrl: '../../navbar.html',
   controller: 'cart',
 });
 
-app.controller("measurementController", ["$scope", function($measurement){
-}]);
+
 
 app.controller("productController", ["$scope", function ($products) {
   $products.product = data;

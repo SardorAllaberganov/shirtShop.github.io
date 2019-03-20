@@ -15,14 +15,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
-  <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
 
   <link rel='stylesheet' href='data/css/slick.css'>
   <link rel='stylesheet' href='data/css/slick-theme.css'>
 
   <link rel="stylesheet" href="data/css/animate.css">  
   <link rel="stylesheet" href="data/css/style.css">
-  <script src="data/js/index.js"></script>
   <script src="data/js/cart.js"></script>
 
   
@@ -63,6 +61,7 @@
     cursor: pointer;
   }
   .slider-nav img{
+    padding: 5px;
     position: absolute;
     top: 5px;
     left: 50%;
@@ -71,6 +70,7 @@
     max-width: 80px;
   }
   .slider-nav span{
+    padding: 5px;
     position: absolute;
     left: 50%;
     text-align: center;
@@ -145,7 +145,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 540px;
+    max-width: 600px;
     background: rgba(255,255,255,.7);
     padding: 20px;
   }
@@ -236,7 +236,9 @@
     letter-spacing: 1px;
   }
   input{
-    max-width: 60px;
+    max-width: 80px;
+    height: 40px;
+    font-size: 22px;
   }
   .modal{
     z-index: 99999;
@@ -269,6 +271,22 @@
     width: 100%;
     object-fit: cover;
   }
+  .warning-modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    display: none;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+
+    text-align: center;
+    color: red;
+    box-shadow: 0 0 20px #999;
+  }
   @media only screen and (max-width: 768px) and (orientation: landscape){
     .slider-nav{
       height: 100px;
@@ -286,15 +304,36 @@
     .myModal p{
       font-size: 12px;
     }
+    .modal-title h4{
+      font-size: 18px;
+    }
+    .modal-body{
+      margin-top: 15px;
+    }
     .quick-size-btn{
       left: 5px;
+      top: 30%;
     }
     .button-group{
+      top: 30%;
       right: 25px;
     }
     .quick-size-btn button,.button-group button{
       padding: 5px 10px;
       font-size: 12px;
+    }
+    .slider-nav span{
+      font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 768px) and (orientation: portrait){
+    .quick-size-btn{
+      left: 5px;
+      top: 30%;
+    }
+    .button-group{
+      top: 30%;
+      right: 25px;
     }
   }
   @media only screen and (max-width: 576px) and (orientation: portrait){
@@ -313,6 +352,13 @@
     }
     .myModal .modal-body{
       padding: 0;
+    }
+    .modal-body{
+      margin-top: 25px;
+    }
+    .modal-title button{
+      width: 15px;
+      height: 15px;
     }
     .myModal p{
       font-size: 11px;
@@ -333,6 +379,9 @@
       padding: 5px 10px;
       font-size: 12px;
     }
+    .slider-nav span{
+      font-size: 12px;
+    }
   }
 </style>
 
@@ -347,11 +396,13 @@
             <p>One size only - Yours</p>
           </div>
           <div class="row button-group">
-            <button>Save</button>
-            <button><i class="fa fa-trash-o" aria-hidden="true"></i> Reset</button>
+            <form action="">
+              <button>Save</button>
+              <button type="button" ng-click="resetMeasure()"><i class="fa fa-trash-o" aria-hidden="true"></i> Reset</button>
+            </form>
           </div>
           <div class="row quick-size-btn">
-            <button data-toggle="modal" data-target="#quickSize">
+            <button data-toggle="modal" data-target="#dialog_measure_sizes">
               Quick <br>
               <strong>Size</strong> 
             </button>
@@ -444,7 +495,7 @@
                     <button class="toggle-btn1" data-target="#demo6"><img src="data/images/icons/close.svg" alt=""></button>
                   </div>
                   <div class="modal-body">
-                    <p>The sleeve length measurement is taken from the point of your shoulder (where you took the shoulder width measurement), following your bent arm down to where you want the sleeve to end. NOTE 1! Bend your arm slightly when taking this measurement. NOTE 2! This measurement is always the full length of the arm. For short sleeve and 3/4 sleeve you should still measure the full length of the arm.</p>
+                    <p>The sleeve length measurement is taken from the point of your shoulder (where you took the shoulder width measurement), following your bent arm down to where you want the sleeve to end. </p>
                     <input type="text" id="arm"> cm
                   </div>
                 </div>
@@ -472,7 +523,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The hip measurement is a circumferential measurement. NOTE! please measure directly on the body i.e. not outside of the garment or on top of a belt.</p>
-                    <input type="text" id="hip"> cm
+                    <input type="text" id="hip_bottoms"> cm
                   </div>
                 </div>
               </div>
@@ -486,7 +537,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The seat measurement is a circumferential measurement taken around the seat at your widest point</p>
-                    <input type="text" id="seat"> cm
+                    <input type="text" id="seat_bottom"> cm
                   </div>
                 </div>
               </div>
@@ -646,42 +697,50 @@
       </div>
   
   <!-- The Modal -->
-  <div class="modal fade" id="quickSize">
+  <div class="modal fade" id="dialog_measure_sizes">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!-- Modal body -->
         <div class="modal-body">
           <button data-dismiss="modal" class="closeBtn"><img src="data/images/icons/close.svg" alt=""></button>
           <h3>QuickSize™ <hr></h3>
           <p>QuickSize™ helps you create a measurement profile using three easy measurements, based on data from thousands of satisfied customers.</p>
-          <form action="">
+          <form action="" id="form-measure-sizes">
             <div class="m-3">
               <label for="">
-                My height <input type="text" id="height"> cm
+                My height <input type="text" id="height" ng-style="this.setStyle" required> cm
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                My weight <input type="text"> cm
+                My weight <input type="text" id="weight" ng-style="this.setStyle" required> kg
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                Collar size <input type="text"> cm
+                Collar size <input type="text" id="collar" ng-style="this.setStyle" required> cm
               </label>
             </div>
-            <button onclick="measureFunc()" type="button">Calculate my measurements</button>
+            <button type="button" id="measure-btn" ng-click="measure();">Calculate my measurements</button>
           </form>
         </div>
         <p class="text-center m-4" data-dismiss="modal">No thanks, I'd rather add all measurements manually</p>
       </div>
     </div>
   </div>
+
+  <!-- warning box -->
+  <div class="warning-modal" id="warningLog">
+    <h1>sdgsdgsd</h1>
+  </div>
 </div>
 
+  <script src="data/js/measure.js"></script>
   <script src='data/js/slick.min.js'></script>
   <script>
-    
+    const resetMeasure = () => {
+      console.log("clicked reset btn");
+      document.getElementsByTagName("input").value = '';
+    }
     $('.slider-for').slick({
       arrows: false,
       fade: true,
