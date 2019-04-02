@@ -56,9 +56,9 @@ var fabrics = [{
   pattern: 'patterned',
   weight: '100-124',
   Image: '/shirtShop.github.io/data/images/fabrics/1.jpg',
-  //Image: '/data/images/fabrics/1.jpg',
-  //ImageModal: '/data/images/fabrics/1-1.jpg'
   ImageModal: '/shirtShop.github.io/data/images/fabrics/1-1.jpg'
+  // Image: '/data/images/fabrics/1.jpg',
+  // ImageModal: '/data/images/fabrics/1-1.jpg'
 },
 {
   id: 2,

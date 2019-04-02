@@ -23,7 +23,16 @@
   <link rel="stylesheet" href="data/css/style.css">
   <script src="data/js/cart.js"></script>
 
+  <!-- <script>
   
+  $(function() {
+      $(".inputs").keyup(function () {
+        if (this.value.length == this.maxLength) {
+          $(this).next('.inputs').focus();
+        }
+      });
+    });
+  </script> -->
   
 <style>
   body{
@@ -713,17 +722,17 @@
           <form action="" id="form-measure-sizes">
             <div class="m-3">
               <label for="">
-                My height <input type="text" minlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="3" id="height" ng-style="this.setStyle" required> cm
+                My height <input class="inputs" type="text" minlength="2" maxlength="3" id="height" ng-style="this.setStyle" required> cm
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                My weight <input type="text" minlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="3" id="weight" ng-style="this.setStyle" required> kg
+                My weight <input class="inputs" type="text" minlength="2" maxlength="3" id="weight" ng-style="this.setStyle" required> kg
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                Collar size <input type="text" maxlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="collar" ng-style="this.setStyle" required> cm
+                Collar size <input class="inputs" type="text" maxlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="collar" ng-style="this.setStyle" required> cm
               </label>
             </div>
             <button type="button" id="measure-btn" ng-click="measure();">Calculate my measurements</button>
@@ -743,6 +752,16 @@
   <script src="data/js/measure.js"></script>
   <script src='data/js/slick.min.js'></script>
   <script>
+    $(function(){
+      $('input').keypress(function(e) {
+        if(isNaN(this.value+""+String.fromCharCode(e.charCode))) 
+          return false;
+        })
+        .on("cut copy paste",function(e){
+          e.preventDefault();
+      });
+    });
+
     const resetMeasure = () => {
       console.log("clicked reset btn");
       document.getElementsByTagName("input").value = '';
@@ -768,7 +787,7 @@
           breakpoint: 1024,
           settings: {
             slidesToShow: 6,
-            slidesToScroll: 6,
+            slidesToScroll: 1,
             infinite: true,
           }
         },
@@ -776,7 +795,7 @@
           breakpoint: 768,
           settings: {
             slidesToShow: 5,
-            slidesToScroll: 5,
+            slidesToScroll: 1,
             infinite: true,
           }
         },
@@ -784,13 +803,13 @@
           breakpoint: 600,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToScroll: 1
           }
         },
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 3,
             slidesToScroll: 1
           }
         }
@@ -816,6 +835,7 @@
         $(".myModal").addClass('show');
       }
     });
+
   </script>
 
 </body>

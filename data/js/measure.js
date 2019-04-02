@@ -1,6 +1,9 @@
 app.controller('measurementController', function($scope, $http) {
+  $(document).on('load', function() {
+    $('#\\#dialog_measure_sizes').modal('show');
+  });
   $scope.measure = () =>{
-    $http.get("/shirtShop.github.io/data/js/shirt-sizes.json").then(function(size_data){
+    $http.get("/data/js/shirt-sizes.json").then(function(size_data){
       $scope.size = angular.fromJson(size_data);
       for(let i = 0; i < $scope.size.data.length;i++) {
         // console.log($scope.size.data[i].Id);
@@ -64,7 +67,12 @@ app.controller('measurementController', function($scope, $http) {
           $scope.setStyle={borderColor:'#333'};
         }
         else{
-          $scope.setStyle={borderColor:'red'};
+          $('input[type="text"]').each(function(){
+            if($(this).val()!=""){
+              $scope.setStyle={borderColor:'red'};
+            }
+          });
+          
           var test1 = $('#dialog_measure_sizes > input').val();
           if (test1 === "") {
             $('#\\#dialog_measure_sizes').modal('show');

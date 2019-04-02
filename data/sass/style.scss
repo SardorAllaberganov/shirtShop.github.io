@@ -449,8 +449,10 @@ a {
       font-family: Montserrat-medium;
     }
     font-family: Montserrat-regular;
-    img {
-      width: 100%;
+    img.fabric-img {
+      width: 100%!important;
+      height: 100%!important;
+      margin: 0!important;
     }
     .modal-body {
       img {

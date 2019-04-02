@@ -430,8 +430,10 @@ a {
 .fabrics-modal h2 {
   font-family: Montserrat-medium;
 }
-.fabrics-modal img {
-  width: 100%;
+.fabrics-modal img.fabric-img {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
 }
 .fabrics-modal .modal-body img {
   width: 100px;
