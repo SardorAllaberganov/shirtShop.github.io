@@ -153,7 +153,8 @@ var app = angular.module('shirtShop',[]);
 //   $scope.$location = $location;
 // })
 app.component("navComponent", {
-  templateUrl: '/shirtShop.github.io/navbar.html',
+  templateUrl: '/navbar.html',
+  // templateUrl: '/shirtShop.github.io/navbar.html',
   controller: 'cart',
 });
 

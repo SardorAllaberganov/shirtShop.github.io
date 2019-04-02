@@ -83,12 +83,12 @@
   .slider-nav h3{
     padding: 20px;
   }
-  .slick-center.slick-active{
-    height: 110%;
+  .slider-nav .slick-current{
+    height: 110%!important;
     margin-top: -5px;
     transition: all 0.3s;
   }
-  .slick-center.slick-active::before {
+  .slider-nav .slick-current::before {
     position: absolute;
     transition: all 0.3s;
     top: 0;
@@ -707,17 +707,17 @@
           <form action="" id="form-measure-sizes">
             <div class="m-3">
               <label for="">
-                My height <input type="text" id="height" ng-style="this.setStyle" required> cm
+                My height <input type="text" minlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="3" id="height" ng-style="this.setStyle" required> cm
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                My weight <input type="text" id="weight" ng-style="this.setStyle" required> kg
+                My weight <input type="text" minlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="3" id="weight" ng-style="this.setStyle" required> kg
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                Collar size <input type="text" id="collar" ng-style="this.setStyle" required> cm
+                Collar size <input type="text" maxlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="collar" ng-style="this.setStyle" required> cm
               </label>
             </div>
             <button type="button" id="measure-btn" ng-click="measure();">Calculate my measurements</button>
@@ -745,14 +745,16 @@
       arrows: false,
       fade: true,
       cssEase: 'linear',
+      infinite: false,
     });
     $('.slider-nav').slick({
       arrows: true,
       asNavFor: '.slider-for,.slider-x',
-      centerMode: true,
+      // centerMode: true,
       centerPadding: '60px',
       dots: false,
       speed: 500,
+      infinite: false,
       focusOnSelect: true,
       slidesToShow: 8,
       responsive: [

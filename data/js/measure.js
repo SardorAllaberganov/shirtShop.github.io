@@ -1,6 +1,6 @@
 app.controller('measurementController', function($scope, $http) {
   $scope.measure = () =>{
-    $http.get("/data/js/shirt-sizes.json").then(function(size_data){
+    $http.get("/shirtShop.github.io/data/js/shirt-sizes.json").then(function(size_data){
       $scope.size = angular.fromJson(size_data);
       for(let i = 0; i < $scope.size.data.length;i++) {
         // console.log($scope.size.data[i].Id);
@@ -65,12 +65,6 @@ app.controller('measurementController', function($scope, $http) {
         }
         else{
           $scope.setStyle={borderColor:'red'};
-          // let warningLog = document.getElementById("warningLog");
-          // warningLog.style.display = "block";
-          // setTimeout(function(){
-          //   warningLog.style.display = "none"; 
-          // }, 1500);
-          // document.getElementById("measure-btn").removeAttribute("data-dismiss");
           var test1 = $('#dialog_measure_sizes > input').val();
           if (test1 === "") {
             $('#\\#dialog_measure_sizes').modal('show');
