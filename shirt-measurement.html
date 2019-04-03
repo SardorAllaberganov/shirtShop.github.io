@@ -396,7 +396,7 @@
 
 </head>
 <body ng-controller="cart as cart">
-  <div ng-controller="measurementController" class="body-measurement">
+  <div class="body-measurement">
     <div class="container-fluid">
         <div class="row">
           <div class="logo">
@@ -419,7 +419,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The collar measurement is taken from the outer edge of the button hole to the center of the button.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -432,7 +432,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The chest measurement is taken across the shirt at the bottom of the sleeve seams. Note that this is NOT a circumference measurement.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -445,7 +445,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The waist measurement is taken across the shirt at the narrowest part of the waist. Note that this is NOT a circumference measurement.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -458,7 +458,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The bottom width measurement is taken across the shirt at the end of the side seams. Note that this is NOT a circumference measurement.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -471,7 +471,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The shirt length measurement is taken from a point straight out from the center of the neck opening down to where your shirt ends.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -484,7 +484,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The shoulder width measurement is taken at the top of the shirt from one sleeve seam to the other.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -497,7 +497,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The upper length measurement is taken from the top of the shoulder where the sleeve meets the body to the end of the cuff.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -510,7 +510,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The cuff measurement is taken across the open cuff, from the outer edge of the button hole to the center of the button.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -523,7 +523,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The sleeve width measurement is taken across the sleeve where it meets the shirt body. Straighten the seam.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -601,7 +601,6 @@
       arrows: true,
       infinite: false,
       asNavFor: '.slider-for,.slider-x',
-      centerMode: true,
       centerPadding: '60px',
       dots: false,
       speed: 500,
@@ -613,28 +612,28 @@
           settings: {
             slidesToShow: 6,
             slidesToScroll: 6,
-            infinite: true,
+            infinite: false,
           }
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 5,
-            slidesToScroll: 5,
-            infinite: true,
+            slidesToScroll: 1,
+            infinite: false,
           }
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToScroll: 1
           }
         },
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 3,
             slidesToScroll: 1
           }
         }

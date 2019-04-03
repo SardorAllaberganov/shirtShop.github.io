@@ -22,6 +22,12 @@
   <link rel="stylesheet" href="data/css/animate.css">  
   <link rel="stylesheet" href="data/css/style.css">
   <script src="data/js/cart.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#dialog_measure_sizes').modal('show');
+    });
+  </script>
   
 <style>
   #error-log1,#error-log2,#error-log3{
@@ -705,7 +711,7 @@
       </div>
   
   <!-- The Modal -->
-  <div class="modal fade" id="dialog_measure_sizes">
+  <div class="modal fade" data-show="true" id="dialog_measure_sizes">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
@@ -758,15 +764,7 @@
           e.preventDefault();
       });
     });
-    // $(function(){
-    //   $('#measure-btn').click(function(e) {
-    //     if($("#height").val() < 150 && $("#height").val() > 209) {
-    //       alert("Рост должень быть от 150 до 210")
-    //       e.preventDefault();
-    //     }
-    //   })
-    // });
-
+    
     $('.inputs').keyup(function() {
       if ($(this).val().length == $(this).attr("maxlength")) {
         $(this).closest('div').next().find('.inputs').focus();
@@ -794,7 +792,7 @@
           settings: {
             slidesToShow: 6,
             slidesToScroll: 1,
-            infinite: true,
+            infinite: false,
           }
         },
         {
@@ -802,7 +800,7 @@
           settings: {
             slidesToShow: 5,
             slidesToScroll: 1,
-            infinite: true,
+            infinite: false,
           }
         },
         {
