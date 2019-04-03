@@ -22,19 +22,12 @@
   <link rel="stylesheet" href="data/css/animate.css">  
   <link rel="stylesheet" href="data/css/style.css">
   <script src="data/js/cart.js"></script>
-
-  <!-- <script>
-  
-  $(function() {
-      $(".inputs").keyup(function () {
-        if (this.value.length == this.maxLength) {
-          $(this).next('.inputs').focus();
-        }
-      });
-    });
-  </script> -->
   
 <style>
+  #error-log1,#error-log2,#error-log3{
+    color: red;
+    display: none
+  }
   body{
     overflow: hidden;
   }
@@ -433,7 +426,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The neck measurement is taken around the neck with the tape resting on your shoulders. You should put one finger between the tape and the neck if you want to allow for some extra room.</p>
-                    <input type="text" id="neck"> cm
+                    <input type="text" maxlength="3" id="neck"> cm
                   </div>
                 </div>
               </div>
@@ -446,7 +439,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The chest measurement is taken as a circumference measurement around your chest at the widest point. Stand in a relaxed posture and breathe out.This value is outside the permitted range</p>
-                    <input type="text" id="chest"> cm
+                    <input type="text" maxlength="3" id="chest"> cm
                   </div>
                 </div>
               </div>
@@ -459,7 +452,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The waist measurement is taken across the shirt at the narrowest part of the waist. Note that this is NOT a circumference measurement.</p>
-                    <input type="text" id="waist"> cm
+                    <input type="text" maxlength="3" id="waist"> cm
                   </div>
                 </div>
               </div>
@@ -472,7 +465,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The seat measurement is taken as a circumference measurement around your seat at the widest part.</p>
-                    <input type="text" id="seat"> cm
+                    <input type="text" maxlength="3" id="seat"> cm
                   </div>
                 </div>
               </div>
@@ -485,7 +478,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The shirt length measurement is taken from the top of the shoulder, close to the mid side of your neck, following your body down to the point where you want your shirt to end.</p>
-                    <input type="text" id="shirtL"> cm
+                    <input type="text" maxlength="3" id="shirtL"> cm
                   </div>
                 </div>
               </div>
@@ -498,7 +491,7 @@
                   </div>
                   <div class="modal-body">
                     <p>Think of a line going from your armpit straight upwards to your shoulder. Measure between those two points and hold the tape measure straight.</p>
-                    <input type="text" id="shoulderW"> cm
+                    <input type="text" maxlength="3" id="shoulderW"> cm
                   </div>
                 </div>
               </div>
@@ -511,7 +504,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The sleeve length measurement is taken from the point of your shoulder (where you took the shoulder width measurement), following your bent arm down to where you want the sleeve to end. </p>
-                    <input type="text" id="arm"> cm
+                    <input type="text" maxlength="3" id="arm"> cm
                   </div>
                 </div>
               </div>
@@ -525,7 +518,7 @@
                   <div class="modal-body">
                     <p>The wrist measurement is taken as a circumference measurement around your wrist. NOTE ! We will add movement ease according to the cuff you select.
                       This value is outside the permitted range</p>
-                    <input type="text" id="wrist"> cm
+                    <input type="text" maxlength="3" id="wrist"> cm
                   </div>
                 </div>
               </div>
@@ -538,7 +531,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The hip measurement is a circumferential measurement. NOTE! please measure directly on the body i.e. not outside of the garment or on top of a belt.</p>
-                    <input type="text" id="hip_bottoms"> cm
+                    <input type="text" maxlength="3" id="hip_bottoms"> cm
                   </div>
                 </div>
               </div>
@@ -552,7 +545,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The seat measurement is a circumferential measurement taken around the seat at your widest point</p>
-                    <input type="text" id="seat_bottom"> cm
+                    <input type="text" maxlength="3" id="seat_bottom"> cm
                   </div>
                 </div>
               </div>
@@ -566,7 +559,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The inseam is measured from the crotch along the inner side of the leg straight down to the floor. Stand upright, do not bend the leg and ask someone to help you take the measurement.</p>
-                    <input type="text" id="inseam"> cm
+                    <input type="text" maxlength="3" id="inseam"> cm
                   </div>
                 </div>
               </div>
@@ -580,7 +573,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The hip measurement is taken as a circumference measurement around your hips at the widest part.</p>
-                    <input type="text" id="hip"> cm
+                    <input type="text" maxlength="3" id="hip"> cm
                   </div>
                 </div>
               </div>
@@ -594,7 +587,7 @@
                   </div>
                   <div class="modal-body">
                     <p>The sleeve length is being measured from the edge of your shoulder down to where you would like the sleeve to end. Stand relaxed and with both arms hanging loosely down the sides.</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -610,7 +603,7 @@
                     <p>Measure from your shoulders furthest point down to your knuckles. Keep your arm and the measuring tape relaxed. Our tailors will adjust this measurement to a recommended sleeve length.
 
                         This value is outside the permitted ra</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -624,7 +617,7 @@
                   </div>
                   <div class="modal-body">
                     <p>Jacket length (back) is taken from the top bone of your spine down to the point where you want your jacket to end (in general, this measurements lies between 70-80 cm depending on height and personal taste).</p>
-                    <input type="text"> cm
+                    <input type="text" maxlength="3"> cm
                   </div>
                 </div>
               </div>
@@ -722,17 +715,26 @@
           <form action="" id="form-measure-sizes">
             <div class="m-3">
               <label for="">
-                My height <input class="inputs" type="text" minlength="2" maxlength="3" id="height" ng-style="this.setStyle" required> cm
+                My height <input class="inputs" type="text" minlength="2" maxlength="3" id="height" required> cm
+                <div id="error-log1" class="error-log">
+                  Рост должень быть от 150 до 210
+                </div>
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                My weight <input class="inputs" type="text" minlength="2" maxlength="3" id="weight" ng-style="this.setStyle" required> kg
+                My weight <input class="inputs" type="text" minlength="2" maxlength="3" id="weight" required> kg
+                <div id="error-log2" class="error-log">
+                  Вес должень быть от 50 до 167
+                </div>
               </label>
             </div>
             <div class="m-3">
               <label for="">
-                Collar size <input class="inputs" type="text" maxlength="2" onkeyup="this.value=this.value.replace(/[^\d]/,'')" id="collar" ng-style="this.setStyle" required> cm
+                Collar size <input class="inputs" type="text" maxlength="2" id="collar" required> cm
+                <div id="error-log3" class="error-log">
+                  Воротник должень быть от 35 до 54
+                </div>
               </label>
             </div>
             <button type="button" id="measure-btn" ng-click="measure();">Calculate my measurements</button>
@@ -741,11 +743,6 @@
         <p class="text-center m-4" data-dismiss="modal">No thanks, I'd rather add all measurements manually</p>
       </div>
     </div>
-  </div>
-
-  <!-- warning box -->
-  <div class="warning-modal" id="warningLog">
-    <h1>sdgsdgsd</h1>
   </div>
 </div>
 
@@ -761,11 +758,20 @@
           e.preventDefault();
       });
     });
+    // $(function(){
+    //   $('#measure-btn').click(function(e) {
+    //     if($("#height").val() < 150 && $("#height").val() > 209) {
+    //       alert("Рост должень быть от 150 до 210")
+    //       e.preventDefault();
+    //     }
+    //   })
+    // });
 
-    const resetMeasure = () => {
-      console.log("clicked reset btn");
-      document.getElementsByTagName("input").value = '';
-    }
+    $('.inputs').keyup(function() {
+      if ($(this).val().length == $(this).attr("maxlength")) {
+        $(this).closest('div').next().find('.inputs').focus();
+      }
+    });
     $('.slider-for').slick({
       arrows: false,
       fade: true,
