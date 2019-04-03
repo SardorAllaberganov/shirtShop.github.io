@@ -1116,7 +1116,9 @@ a {
 // footer style
 .footer {
   margin-top: 20px;
-  background-color: #f5f5f5;
+  color: #fff;
+  background: url('../images/footer.png');
+  background-size: cover;
   p {
     text-align: center;
   }
@@ -1680,6 +1682,9 @@ portrait) {
 }
 
 @include mediaMaxWidth(768px,landscape) {
+  .upperFooter{
+    text-align: center;
+  }
   .instaBlocks{
     width: 100%;
   }
