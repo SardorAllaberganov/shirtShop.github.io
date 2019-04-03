@@ -6,7 +6,7 @@ app.controller('measurementController', function($scope, $http) {
     }
   });
   $scope.measure = () =>{
-    $http.get("z/data/js/shirt-sizes.json").then(function(size_data){
+    $http.get("/shirtShop.github.io/data/js/shirt-sizes.json").then(function(size_data){
       $scope.size = angular.fromJson(size_data);
       for(let i = 0; i < $scope.size.data.length;i++) {
         // console.log($scope.size.data[i].Id);
