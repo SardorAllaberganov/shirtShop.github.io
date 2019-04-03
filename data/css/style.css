@@ -1190,8 +1190,35 @@ a {
   transform: scale(1.1);
 }
 
+.specialist-input {
+  text-align: center;
+}
+.specialist-input div {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.specialist-input div input {
+  height: 40px;
+  padding: 10px;
+  width: 100%;
+  min-width: 280px;
+  max-width: 400px;
+}
+.specialist-input div button {
+  margin-top: 60px;
+  background: #1a2d40;
+}
+
 .contactUsPage {
   margin: 50px 0;
+}
+.contactUsPage .contactus-info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3em;
 }
 .contactUsPage .inner-box {
   padding: 20px;

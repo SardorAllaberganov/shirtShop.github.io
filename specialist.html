@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+  <script type="text/javascript" src='//rawgithub.com/prajwalkman/angular-slider/master/angular-slider.js'  charset="utf-8"></script>    
   <link rel="stylesheet" href="data/css/animate.css">  
   <link rel="stylesheet" href="data/css/style.css">
   <script src="data/js/index.js"></script>
@@ -46,37 +47,21 @@
           </form>
         </li>
       </ul>
-    <!-- navbar -->
-    <nav-component></nav-component> 
-      
-    <section class="contactUsPage">
-      <div class="container-fluid">
-        <div class="row inner-box">
-          <div class="col-md-6">
-            <!-- <div class="mapBody" style="height: 100%;">
-              <div id="map" style="height: 100%; width: 100%;"></div>
-            </div> -->
-            <div class="contactus-info">
-              <p><i class="fa fa-map-o" aria-hidden="true"></i> г. Ташкент, ул. Уста Ширин 100</p>
-              <p><i class="fa fa-phone" aria-hidden="true"></i> +998(99) 999-99-99</p>
-              <p><i class="fa fa-envelope-o" aria-hidden="true"></i> shirtstore@company.com</p>
-              <p><i class="fa fa-globe" aria-hidden="true"></i> shirtstore.com</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <h4 class="text-center contactFormTitle">Хабар жўнатинг</h4>
-            <form action="" class="contactForm">
-              <input type="text" class="form-control" placeholder="Исм Шариф">
-              <input type="text" class="form-control" placeholder="Телефон рақам">
-              <input type="text" class="form-control" placeholder="Электрон почта">
-              <textarea name="" id="" rows="5" class="form-control" placeholder="Хабар"></textarea>
-              <button type="button" class="btn btn-success">Жўнатиш</button>
-            </form>
-          </div>
+      <!-- navbar -->
+      <nav-component></nav-component> 
+
+    <div class="container-fluid personal-page">
+      <h2>Call to specialist</h2>
+      <div class="row mb-4">
+        <p class="text-center">Leave your phone and our specialist will call you to help</p>
+      </div>
+      <div class="row specialist-input">
+        <div class="my-4">
+          <input type="text" placeholder="Enter your phone number">
+          <button type="submit">Send</button>
         </div>
       </div>
-    </section>
-    
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -119,37 +104,5 @@
       </div>
     </footer>
   </div>
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-  <script>
-    ymaps.ready(init);
-
-    function init() {
-      var myMap = new ymaps.Map("map", {
-        center: [41.3109772515277, 69.27950934178443],
-        zoom: 16,
-        controls: ['searchControl', 'zoomControl']
-      }, {
-          searchControlProvider: 'yandex#search',
-      }),
-      
-      // Создаем геообъект с типом геометрии "Точка".
-      myGeoObject = new ymaps.GeoObject({
-        // Описание геометрии.
-        geometry: {
-          type: "Point",
-          coordinates: [41.3109772515277, 69.27950934178443]
-          },
-        }, {
-          // Опции.
-          // Иконка метки будет растягиваться под размер ее содержимого.
-          preset: 'islands#redDotIcon',
-          // Метку можно перемещать.
-          draggable: false
-        });
-        myMap.geoObjects.add(myGeoObject);
-        myMap.behaviors.disable('scrollZoom'); 
-    }
-  
-  </script>
 </body>
 </html>

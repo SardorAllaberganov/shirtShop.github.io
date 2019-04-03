@@ -1215,9 +1215,36 @@ a {
   }
 }
 
+.specialist-input{
+  text-align: center;
+  div{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    input{
+      height: 40px;
+      padding: 10px;
+      width: 100%;
+      min-width: 280px;
+      max-width: 400px;
+    }
+    button{
+      margin-top: 60px;
+      background: #1a2d40;
+    }
+  }
+}
+
 //contact Us Page
 .contactUsPage {
   margin: 50px 0;
+  .contactus-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3em;
+  }
   .inner-box {
     padding: 20px;
     box-shadow: 0 3px 10px #999999;
